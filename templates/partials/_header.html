@@ -1,0 +1,77 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block content %}
+<!-- navbare area -->
+        <nav class="navbar navbar-area">
+            <div class="container">
+                <!-- Brand and toggle get grouped for better mobile display -->
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle blacknav collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                </div>
+                <!-- Collect the nav links, forms, and other content for toggling -->
+                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                    <ul class="nav menu navbar-left navbar-nav">
+                        <li class="current-menu-item"><a href="#home">home <span class="fa fa-angle-down"></span></a>
+                        <ul>
+                            <li><a href="index.html">Home Page 1</a></li>
+                            <li><a href="index-2.html">Home Page 2</a></li>
+                            <li><a href="index-3.html">Home Page 3</a></li>
+                        </ul>
+                        </li>
+                        <li><a href="#about">about <span class="fa fa-angle-down"></span></a>
+                        <ul>
+                            <li><a href="about-1.html">About Page 1</a></li>
+                            <li><a href="about-2.html">About Page 2</a></li>
+                            <li><a href="about-3.html">About Page 3</a></li>
+                        </ul>
+
+                        </li>
+                        <li><a href="#portfolio">MEDICAL STUFFS <span class="fa fa-angle-down"></span> </a>
+                            <ul>
+                                <li><a href="medical-stuff-1.html">MEDICAL STUFFS 1</a></li>
+                                <li><a href="medical-stuff-2.html">MEDICAL STUFFS 2</a></li>
+                                <li><a href="medical-stuff-3.html">MEDICAL STUFFS 3</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="#team">Services <span class="fa fa-angle-down"></span></a>
+                            <ul>
+                                <li><a href="services-1.html">Services Page 1</a></li>
+                                <li><a href="services-2.html">Services Page 2</a></li>
+                                <li><a href="services-3.html">Services Page 3</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="#pricing">news <span class="fa fa-angle-down"></span></a>
+                            <ul>
+                                <li><a href="news-1.html">News Page 1</a></li>
+                                <li><a href="news-2.html">News Page 2</a></li>
+                                <li><a href="news-3.html">News Page 3</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="#contact">contact <span class="fa fa-angle-down"></span></a>
+                        <ul>
+                            <li><a href="contact-1.html">Contact Page 1</a></li>
+                            <li><a href="contact-2.html">Contact Page 2</a></li>
+                            <li><a href="contact-3.html">Contact Page 3</a></li>
+                        </ul>
+
+                        </li>
+                        <li><a href="#contact">Login / Register</a></li>
+                    </ul>
+                    <ul class="nav top-search navbar-right navbar-nav">
+                        <li>
+                            <a href="#" class="fa fa-search"></a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        <!-- end of navbare area -->
+
+{% endblock %}

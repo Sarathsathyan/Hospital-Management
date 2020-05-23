@@ -1,0 +1,218 @@
+{% extends 'base.html' %}{% load static %}{% load crispy_forms_tags %}
+
+{% block content %}
+
+    <style>
+    .v2-about-input{
+        font-size: 20px;
+        height: 50px;
+    }
+    .log{
+        margin-top: 16px;
+    margin-left: 21px;
+    }
+    .requiredField{
+        display: none;
+
+    }
+
+    </style>
+
+    <div id="preloader"></div>
+    <!-- start topbar area -->
+    <div class="v3-topbar">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-8">
+                    <div class="topbar-single-div">
+                        <i class="fa fa-globe"></i>
+                        <label>
+                            language
+                        </label>
+                        <span class="select-language">
+                    <select name="#" id="#">
+                        <option value="English">English</option>
+                        <option value="Bangla">Bangla</option>
+                        <option value="Hindi">Hindi</option>
+                        <option value="Arabic">Arabi</option>
+                    </select>
+                </span>
+                    </div>
+                    <div class="topbar-single-div">
+                        <i class="fa fa-flash"></i>
+                        <h4>Call us: 1.777.777.777</h4>
+                    </div>
+                    <div class="topbar-single-div">
+                        <i class="fa fa-envelope"></i>
+                        <h4>hello@theerfan.com</h4>
+                    </div>
+                </div>
+                <div class="col-sm-4 text-right">
+                    <div class="top-social-link">
+                        <a href="#" class="fa fa-facebook"></a>
+                        <a href="#" class="fa fa-twitter"></a>
+                        <a href="#" class="fa fa-linkedin"></a>
+                        <a href="#" class="fa fa-google-plus"></a>
+                        <a href="#" class="fa fa-tumblr"></a>
+                        <a href="#" class="fa fa-skype"></a>
+                        <a href="#" class="fa fa-vimeo"></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="version-3-logo">
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-12 text-center">
+                    <a class="site-logo" href="#"><img src="{% static 'img/logo.png' %}" alt="jigsawlab"></a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <section class="home-area v3">
+    {% include 'partials/_header.html' %}
+
+    <!-- start single page title area -->
+        <div class="info">
+                        <div class="container">
+
+                            <div class="row">
+                                    <div class="col-sm-6 v3-homeform" style="width: 100%">
+                                        {% include 'partials/_alerts.html' %}
+
+                                    <div class="about-form">
+                                        <form method="post">{% csrf_token %}
+                                        <div class="form-title text-center">
+                                            <h2> <span>Register Here</span></h2>
+                                        </div>
+                                        <div class="v2-about-input">
+                                            <input type="text" name="first" placeholder="First Name" required>
+                                        </div>
+                                        <div class="v2-about-input">
+                                            <input type="text" name="last" placeholder="Last Name" required>
+                                        </div>
+                                        <div class="v2-about-input">
+                                            <input type="email" name="email" placeholder="Email" required>
+                                        </div>
+                                        <div class="v2-about-input">
+                                             {{ form|crispy }}
+
+                                        </div>
+                                        <div class="v2-about-input">
+                                            <input type="password" name="pass1" placeholder="Password" required>
+                                        </div>
+                                        <div class="v2-about-input">
+                                            <input type="password" name="pass2" placeholder="Conform Password" required>
+                                        </div>
+                                        <div class="v2-about-input">
+                                            <div class="v2-about-select">
+                                                <select name="category" required>
+                                                    <option >Choose your role</option>
+                                                    <option value="Doctor">Doctor</option>
+                                                    <option value="Patient">Patient</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="v2-about-input">
+                                            <input type="text" name="username" placeholder="Username" required>
+                                        </div>
+
+                                        <div class="v2-about-input log">
+                                          Already have account : <a href="">Login</a>
+                                        </div>
+                                        <div class="v2-about-submit">
+                                            <input type="submit" value="Register">
+                                        </div>
+                                        </form>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+        </div>
+
+
+    </section>
+
+    <footer class="footer-area section-padding">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-7">
+                    <div class="footer-content">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="footer-logo">
+                                    <img src="{% static 'img/logo.png' %}" alt="mdimran41">
+                                </div>
+                                <div class="footer-about">
+                                    <p>Am interdum, nulla id sodales viverra, Nam interdum, nulla id sodales viverra, quam eros commodo est, quis aliquam lectus feugiat enim lorem quis nisl. Quisque ac arcu egestas, convallis risus vitae, gravida enim quam eros commodo est, quis aliquam lectus. Nam interdum, nulla id sodales viverra.</p>
+                                    <p>Praesent iaculis ut lacus a mattis. Nam interdum, nulla id sodales viverra.</p>
+                                    <a href="#"> <span class="fa fa-angle-right"></span>read more</a>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="footer-recent-post">
+                                    <div class="media">
+                                        <a class="pull-left" href="#">
+                                            <img class="media-object" src="{% static 'img/recen-1.png' %}" alt="jigsawlab">
+                                        </a>
+                                        <div class="media-body">
+                                            <a href="#"><h4 class="media-heading">Cosmology</h4></a>
+                                            <p>Phasellus ut condimentum diam, eget tempus lorem...</p>
+                                            <p>21 December, 2017</p>
+                                        </div>
+                                    </div>
+                                    <div class="media">
+                                        <a class="pull-left" href="#">
+                                            <img class="media-object" src="{% static 'img/recen-2.png' %}" alt="jigsawlab">
+                                        </a>
+                                        <div class="media-body">
+                                            <a href="#"><h4 class="media-heading">Cancer Facts</h4></a>
+                                            <p>Phasellus ut condimentum diam, eget tempus lorem...</p>
+                                            <p>21 December, 2017</p>
+                                        </div>
+                                    </div>
+                                    <div class="media">
+                                        <a class="pull-left" href="#">
+                                            <img class="media-object" src="{% static 'img/recen-3.png' %}" alt="jigsawlab">
+                                        </a>
+                                        <div class="media-body">
+                                            <a href="#"><h4 class="media-heading">Dental Services</h4></a>
+                                            <p>Phasellus ut condimentum diam, eget tempus lorem...</p>
+                                            <p>21 December, 2017</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-5">
+                    <div class="media-carea-contact">
+                        <form action="http://www.kazierfan.com/themes/medicre/medicre/index.html">
+                            <div class="single-form">
+                                <input class="form-control" type="text" placeholder="Name">
+                            </div>
+                            <div class="single-form">
+                                <input class="form-control" type="text" placeholder="Email">
+                            </div>
+                            <div class="single-form">
+                                <input class="form-control" type="text" placeholder="Phone number">
+                            </div>
+                            <div class="single-text-area">
+                                <textarea class="form-control" name="message" id="message" cols="30" rows="10"></textarea>
+                            </div>
+                            <div class="single-submit">
+                                <input class="form-control text-center" type="submit" value="submit now">
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+
+
+{% endblock %}

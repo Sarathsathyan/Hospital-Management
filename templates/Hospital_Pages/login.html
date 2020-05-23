@@ -1,0 +1,121 @@
+{% extends 'base.html' %}{% load static %}{% load crispy_forms_tags %}
+
+{% block content %}
+
+    <style>
+    .v2-about-input{
+        font-size: 20px;
+        height: 50px;
+    }
+    .log{
+        margin-top: 16px;
+    margin-left: 21px;
+    }
+    .requiredField{
+        display: none;
+
+    }
+
+    </style>
+
+    <div id="preloader"></div>
+    <!-- start topbar area -->
+    <div class="v3-topbar">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-8">
+                    <div class="topbar-single-div">
+                        <i class="fa fa-globe"></i>
+                        <label>
+                            language
+                        </label>
+                        <span class="select-language">
+                    <select name="#" id="#">
+                        <option value="English">English</option>
+                        <option value="Bangla">Bangla</option>
+                        <option value="Hindi">Hindi</option>
+                        <option value="Arabic">Arabi</option>
+                    </select>
+                </span>
+                    </div>
+                    <div class="topbar-single-div">
+                        <i class="fa fa-flash"></i>
+                        <h4>Call us: 1.777.777.777</h4>
+                    </div>
+                    <div class="topbar-single-div">
+                        <i class="fa fa-envelope"></i>
+                        <h4>hello@theerfan.com</h4>
+                    </div>
+                </div>
+                <div class="col-sm-4 text-right">
+                    <div class="top-social-link">
+                        <a href="#" class="fa fa-facebook"></a>
+                        <a href="#" class="fa fa-twitter"></a>
+                        <a href="#" class="fa fa-linkedin"></a>
+                        <a href="#" class="fa fa-google-plus"></a>
+                        <a href="#" class="fa fa-tumblr"></a>
+                        <a href="#" class="fa fa-skype"></a>
+                        <a href="#" class="fa fa-vimeo"></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="version-3-logo">
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-12 text-center">
+                    <a class="site-logo" href="#"><img src="{% static 'img/logo.png' %}" alt="jigsawlab"></a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <section class="home-area v3">
+    {% include 'partials/_header.html' %}
+
+    <!-- start single page title area -->
+        <div class="info">
+                        <div class="container">
+
+                            <div class="row">
+                                    <div class="col-sm-6 v3-homeform" style="width: 100%">
+                                        {% include 'partials/_alerts.html' %}
+
+                                    <div class="about-form">
+                                        <form method="post">{% csrf_token %}
+                                        <div class="form-title text-center">
+                                            <h2> <span>Login Here</span></h2>
+                                        </div>
+
+                                            <div class="v2-about-input">
+                                            <input type="text" name="username" placeholder="Username" required>
+
+                                            </div>
+
+                                        <div class="v2-about-input">
+                                            <input type="password" name="pass1" placeholder="Password" required>
+                                        </div>
+
+
+
+                                        <div class="v2-about-input log">
+                                          Dont have account ? : <a href="">Register</a>
+                                        </div>
+                                        <div class="v2-about-submit">
+                                            <input type="submit" value="Login">
+                                        </div>
+                                        </form>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+        </div>
+
+
+    </section>
+
+
+
+
+{% endblock %}

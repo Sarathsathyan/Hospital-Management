@@ -1,0 +1,5 @@
+
+django-crispy-forms==1.8.1
+phonenumbers==8.11.0
+email-validator==1.0.5
+django-phonenumber-field

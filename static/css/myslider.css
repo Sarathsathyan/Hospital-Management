@@ -1,0 +1,108 @@
+/* ==== Main CSS === */
+
+.img-fill {
+    width: 100%;
+    display: block;
+    overflow: hidden;
+    position: relative;
+    text-align: center;
+    z-index: -2
+}
+
+.img-fill img {
+    min-height: 100%;
+    min-width: 100%;
+    position: relative;
+    display: inline-block;
+    max-width: none;
+}
+
+
+/* ==== Slider Style === */
+
+.Modern-Slider .item .img-fill {
+    background: #000;
+    
+}
+
+
+.Modern-Slider .item .img-fill .info {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0px;
+    left: 0px;
+    background: rgba(0, 0, 0, .1);
+}
+
+.Modern-Slider .item {
+    z-index: -10
+}
+
+.welcometext {
+    color: #fff
+}
+
+
+/*css code for animation effect*/
+
+
+
+.Modern-Slider .item.slick-active .welcome-text {
+    animation: slideInRight .5s both;
+}
+
+
+.home3 .Modern-Slider .item.slick-active .img-fill .home-3img > img{
+    animation: slideInRight 3s both;
+}
+.home3 .Modern-Slider .item.slick-active:nth-child(odd) .img-fill .home-3img > img{
+    animation: slideInRight 3s both;
+}
+.Modern-Slider .item.slick-active:nth-child(odd) img {
+    animation: fadeIn 5s both;
+}
+
+
+/*slider arrows*/
+.PrevArrow {
+  background: transparent none repeat scroll 0 0;
+  border: 1px solid #fff;
+  border-radius: 50%;
+  color: #fff;
+  font-size: 24px;
+  font-weight: 300;
+  height: 45px;
+  left: 2%;
+  line-height: 45px;
+  margin-top: -25px;
+  position: absolute;
+  top: 50%;
+  transition: all 0.4s ease 0s;
+  width: 45px;
+  z-index: 5;
+}
+
+.NextArrow {
+    background: transparent;
+    font-size: 30px;
+    height: 45px;
+    margin-top: -25px;
+    position: absolute;
+    right: 2%;
+    text-align: center;
+    top: 50%;
+    width: 45px;
+    color: #fff;
+    border: 1px solid #fff;
+    font-size: 24px;
+    transition: .4s;
+    border-radius: 1px;
+    border-radius: 50%
+}
+
+.slick-arrow:hover {
+    background: #23b5b9;
+    border-color: #23b5b9;
+    box-shadow: 1px 2px 2px #a8acac
+}

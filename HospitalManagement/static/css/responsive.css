@@ -1,0 +1,812 @@
+    @media only screen and (min-width: 1400px) {
+     
+    }
+    
+    @media only screen and (min-width: 992px) and (max-width: 1200px) {
+        button.PrevArrowbrand {
+            left: 0;
+        }
+        button.NextArrowbrand {
+            right: 0
+        }
+        .topbar-area .pull-left {
+            margin-right: 0;
+        }
+        .topbar-area .media-body {
+            font-weight: 700;
+            font-size: 11px;
+        }
+        .topbar-area .media-heading {
+            font-size: 17px;
+        }
+        .get-btn {
+            margin-top: 25px;
+        }
+        .single-features p {
+            display: inline;
+        }
+        .speacialist-link {
+            top: 3%
+        }
+        .nav.nav-tabs.nav-justified li a {
+            padding-right: 5px;
+            padding-left: 5px;
+        }
+        .imrn-client-details {
+            font-size: 19px;
+        }
+        .news-content {
+            width: 82%;
+            padding-top: 20px;
+        }
+        .department-section::before {
+            height: 100%;
+        }
+        .tab-content {
+            margin-top: 0;
+        }
+        .brand-section {
+            padding-top: 50px;
+            padding-bottom: 50px
+        }
+        .v2 .welcome-text h4 {
+            font-size: 17px;
+        }
+        .v2 .tab-content {
+            margin-top: 70px;
+        }
+        .topbar-single-div {
+            padding-left: 10px;
+            padding-right: 10px;
+        }
+        .features-area.v3 .single-features.v3 .service-link {
+            display: block;
+            margin-right: auto;
+            margin-left: auto;
+        }
+        .department-section.singlepage .nav.nav-tabs.nav-justified li.active::before {
+            bottom: -43px;
+        }
+        .page-title h2 {
+            font-size: 38px;
+        }
+        /*final checking css*/
+        .menu > li > a {
+            padding-right: 17px;
+            padding-left: 17px;
+        }
+        .slider-content-area {
+            margin-left: 60px
+        }
+        .v3 .slider-content-area {
+            margin-left: 0
+        }
+
+        .single-speacialist:hover .speacialist-link{
+            top: 3%
+        }
+                .aboutUs-contant.about-left .about-btn {
+    box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.15);
+}
+.slider-content-area{
+                margin-left: 0
+        }
+       .v2-about-input {
+	height: 40px;
+	width: 48.9%;
+	float: left;
+	
+	margin-bottom: 10px;
+}
+
+    }
+    
+    @media only screen and (min-width: 768px) and (max-width: 991px) {
+        .welcome-text h1 {
+            font-size: 30px;
+        }
+        .welcome-text h2 {
+            font-size: 24px;
+        }
+        .welcome-text {
+            padding: 30px;
+        }
+        .NextArrow {
+            bottom: 15px;
+            top: auto;
+            right: 44%;
+        }
+        .PrevArrow {
+            top: auto;
+            left: 44%;
+            bottom: 15px
+        }
+        .nav.navbar-right.social-link {
+            float: none !important;
+            width: 100%;
+            display: block;
+            text-align: center;
+            overflow: hidden;
+            padding-bottom: 15px;
+        }
+        .nav.navbar-right.social-link li {
+            float: none;
+            display: inline-block
+        }
+        .news-slider-active {
+            margin-bottom: 50px;
+        }
+        .topbar-area .pull-left {
+            margin-right: 0;
+        }
+        .topbar-area .media-body {
+            font-weight: 700;
+            font-size: 9px;
+        }
+        .topbar-area .media-heading {
+            font-size: 13px;
+        }
+        .menu li ul {
+            z-index: 4
+        }
+        .get-quate-content h2 {
+            font-size: 22px;
+        }
+        .get-btn a {
+            width: 200px;
+            margin-top: 15px;
+        }
+        .single-features p {
+            display: inline
+        }
+        .about-right {
+            padding-left: 0
+        }
+        .section-title p {
+            display: inline
+        }
+        .speacialist-link {
+            top: 10%;
+        }
+        .speacialist-link a {
+            height: 30px;
+            width: 30px;
+            line-height: 32px;
+            font-size: 14px;
+            margin-bottom: 10px;
+        }
+        .nav.nav-tabs.nav-justified li a {
+            padding-right: 5px;
+            padding-left: 5px;
+        }
+        .nav.nav-tabs.nav-justified li a h4 {
+            font-size: 12px;
+        }
+        .navimg {
+            line-height: 50px;
+            margin-bottom: 0;
+        }
+        .department-section::before {
+            height: 100%
+        }
+        .tab-content {
+            margin-top: 0
+        }
+        .brand-section {
+            padding-top: 50px;
+            padding-bottom: 50px;
+        }
+        button.PrevArrowbrand {
+            left: 0;
+        }
+        button.NextArrowbrand {
+            right: 0
+        }
+        .clientprev {
+            left: 0;
+        }
+        .clientnext {
+            right: 0
+        }
+        .media-carea-contact {
+            margin-top: 50px;
+        }
+        .news-content {
+            width: 42%
+        }
+        .footer-recent-post {
+            margin-top: 80px;
+        }
+        .navbar-area.v2 .menu > li > a {
+            padding-right: 7px;
+            padding-left: 7px;
+            font-size: 13px;
+        }
+        .v2 .navbar-brand {
+            max-width: 180px;
+            margin-top: 10px;
+        }
+        .v2 .social-link a {
+            width: 30px;
+            height: 30px;
+            line-height: 26px !important;
+        }
+        .v2 .social-link {
+            padding-bottom: 0 !important;
+            margin-top: 5px;
+            margin-bottom: 5px;
+        }
+        .v2.single-features::after {
+            width: 20%;
+            left: 3px;
+        }
+        .v2.single-features:before {
+            width: 21%;
+        }
+        .v2-about-input {
+            width: 100%;
+            margin-right: 0;
+        }
+        .v3-contact .contact-formv2 .v2-about-input{
+            margin-right: 4px;
+        }
+        .form-title.text-center h2 {
+            font-size: 22px;
+        }
+        .v2 .tab-content {
+            margin-top: 70px;
+        }
+        .speacialist-link.v2 {
+            width: 120px;
+            margin-left: -55px;
+            margin-top: -35px;
+        }
+        .topbar-single-div {
+            padding-right: 10px;
+            padding-left: 10px;
+        }
+        .topbar-single-div h4 {
+            font-size: 12px;
+        }
+        .topbar-single-div i {
+            display: none !important;
+        }
+        .v3 .single-features > h4 {
+            font-size: 17px;
+        }
+        .v3 .single-features {
+            padding-right: 10px !important;
+            padding-left: 10px !important
+        }
+        .v3 .single-features .features-icon {
+            margin-bottom: 0
+        }
+        .home-area .single-page-title {
+            padding-top: 120px;
+        }
+        .home-area.v3 .single-page-title {
+            padding-top: 60px
+        }
+        .page-title h2 {
+            font-size: 25px;
+        }
+        .department-section.singlepage::before {
+            background: #fff;
+            height: 29.2%;
+        }
+        .department-section.singlepage .nav.nav-tabs.nav-justified li.active::before {
+            bottom: -50px;
+        }
+        /*final cheking css*/
+        .menu > li > a {
+            padding-right: 17px;
+            padding-left: 17px;
+        }
+        .menu li:last-child > ul {
+            right: 0;
+            left: auto;
+        }
+        .Modern-Slider.v2 {
+            height: 430px;
+        }
+        .home-area.v2 {
+            height: 520px;
+        }
+        .speacila-content {
+            padding-right: 10px;
+            padding-left: 10px;
+            padding-bottom: 10px;
+        }
+        .contact-title h1 {
+            font-size: 30px;
+        }
+        .v2-about-input .v2-about-select::before {
+            right: 3%
+        }
+        .date {
+            margin-bottom: 10px;
+        }
+        
+        
+        .single-speacialist > h4{
+            font-size: 16px;
+        }
+        .v2 .nesws-media{
+                margin-top: 50px
+        }
+        .v2 .version-second-news-slider img{
+                  width: 100%;
+        }       
+        .imrn-client-details.v2 {
+                margin-top:52px
+                
+        }
+        .v3 .menu li a{
+                padding-left: 10px;
+        }
+        
+
+    }
+    
+    @media only screen and (max-width: 767px) {
+
+        .topmedia {
+            display: none;
+        }
+        .social-link {
+            text-align: center
+        }
+        .topbar-area {
+            text-align: center;
+            padding: 10px 0
+        }
+        .welcome-text {
+            padding: 20px;
+        }
+        .welcome-text h1 {
+            font-size: 30px;
+        }
+        .welcome-text h2 {
+            font-size: 25px;
+            padding-bottom: 10px;
+        }
+        .navbar-toggle span {
+            background: #fff;
+        }
+        .NextArrow {
+            bottom: 15px;
+            top: auto;
+            right: 33%;
+        }
+        .PrevArrow {
+            top: auto;
+            left: 33%;
+            bottom: 15px
+        }
+        .home-area {
+            height: 600px;
+        }
+        .navbar-header .navbar-toggle {
+            float: none;
+            margin-right: 0;
+        }
+        .navbar-header {
+            text-align: center;
+        }
+        .menu {
+            text-align: center;
+        }
+        .menu li > ul {
+            width: 100%;
+            z-index: 5
+        }
+        .nav.social-link li {
+            display: inline-block;
+        }
+        .nav.social-link li:first-child {
+            margin-left: 20px;
+        }
+        .navbar-toggle.active .icon-bar:nth-of-type(3) {
+            background: #fff
+        }
+        /*         end of nav area */
+        /*         start call to action area */
+        .get-quate-content h2 {
+            font-size: 20px;
+        }
+        .get-btn {
+            text-align: center;
+            margin-top: 50px;
+        }
+        .features-area {
+            padding-bottom: 50px;
+        }
+        .single-features p {
+            display: inline
+        }
+        .single-features {
+            margin-bottom: 40px
+        }
+        .aboutUs-area::before {
+            width: 100%
+        }
+        .about-right {
+            padding-left: 0;
+            margin-top: 50px;
+        }
+        /*         end of about area */
+        /*         section title css */
+        .section-title h1 {
+            font-size: 24px;
+        }
+        .section-title p {
+            display: inline;
+            font-size: 16px;
+            line-height: 18px;
+        }
+        /*         end of section title css */
+        .speacialist-link {
+            top: 20%;
+        }
+        .speacialist-area.v3 .speacialist-link{
+            position: static
+        }
+        .footer-recent-post{
+            margin-bottom: 50px;
+        }
+        .speacialist-link a {
+            height: 30px;
+            width: 30px;
+            line-height: 32px;
+            font-size: 15px;
+            margin-bottom: 10px;
+        }
+        /*         end of speacialist  */
+        .nav-justified.nav-tabs li {
+            display: inline-block;
+            width: 49.4%;
+        }
+        .nav.nav-tabs.nav-justified li a {
+            border-right: 0;
+            padding: 0;
+            margin-bottom: 20px;
+        }
+        .nav.nav-tabs.nav-justified li.active a {
+            border-right: 0
+        }
+        .department-section::before {
+            height: 100%;
+        }
+        .nav.nav-tabs.nav-justified li:nth-child(even) {
+            border-right: 1px solid rgba(255, 255, 255, .75);
+            border-radius: 5px;
+        }
+        .nav-tabs.nav-justified {
+            padding-bottom: 0
+        }
+        .department-img {
+            margin-bottom: 50px;
+        }
+        .brand-section {
+            padding-bottom: 50px;
+            padding-top: 50px;
+        }
+        button.NextArrowbrand {
+            right: 0 !important;
+        }
+        button.PrevArrowbrand {
+            left: 0 !important;
+        }
+        .clientprev {
+            left: 0;
+        }
+        .clientnext {
+            right: 0
+        }
+        .imrn-client-details {
+            font-size: 15px;
+        }
+        .imrn-client-details .client-name h4 {
+            font-size: 17px;
+        }
+        /*         end of client seciton */
+        .news-img-fill {
+            height: 400px;
+        }
+        .news-content {
+            padding: 20px;
+            width: 100%;
+        }
+        .news-slider-active {
+            margin-bottom: 50px;
+        }
+        .nesws-media .media {
+            margin-bottom: 50px;
+        }
+        .nesws-media .media-body .about-news a span {
+            padding-left: 3px;
+        }
+        .nesws-media .media-body .about-news a {
+            padding-right: 3px;
+            margin-right: 3px;
+        }
+        .view-alldoctors a.read-more {
+            margin-top: 20px;
+        }
+        .footer-top h3 {
+            font-size: 18px;
+            text-transform: uppercase;
+            line-height: 28px;
+        }
+        .footer-about {
+            margin-bottom: 50px;
+        }
+        .speacialist-area .view-alldoctors a.read-more {
+            margin-top: 50px;
+        }
+        .mediacare-client-section {
+            padding-bottom: 0
+        }
+        .copyriht-area .footer-social-link {
+            text-align: center;
+            margin-bottom: 10px;
+        }
+        .copyright-text {
+            text-align: center;
+        }
+        /*version two css*/
+        .topaddress-v2 {
+            display: none;
+        }
+        .v2 .social-link a {
+            width: 30px;
+            height: 30px;
+            line-height: 26px !important;
+            margin-left: 4px;
+        }
+        .v2 .navbar-area .navbar-brand {
+            padding-top: 4px !important;
+            max-width: 200px;
+        }
+        .navbar-area.v2 .navbar-toggle {
+            float: right;
+        }
+        .navbar-area.v2 .navbar-toggle span {
+            background: #23B5B9;
+        }
+        .navbar-toggle.active .icon-bar:nth-of-type(3) {
+            background: #23B5B9
+        }
+        .navbar-area.v2 .menu > li > a {
+            line-height: 30px;
+        }
+        .v2 .welcome-text h1 {
+            font-size: 20px;
+        }
+        .v2 .welcome-text h4 {
+            font-size: 15px;
+            line-height: 24px;
+        }
+        .v2.read-more {
+            width: 140px;
+            margin-right: 0;
+            height: 40px;
+            line-height: 40px;
+            font-size: 13px;
+            font-weight: 600;
+        }
+        .v2.slider-content-area {
+            padding-top: 50px !important;
+            padding-bottom: 80px !important;
+        }
+        .home-area.v2 {
+            height: auto !important
+        }
+        .Modern-Slider.v2 {
+            height: auto !important
+        }
+        .v2.single-features::after {
+            display: none;
+        }
+        .v2.single-features::before {
+            display: none;
+        }
+        .v2 .aboutUs-contant .about-title h1 {
+            font-size: 30px;
+        }
+        .about-form {
+            padding: 10px;
+            padding-bottom: 30px;
+            padding-top: 30px;
+            margin-top: 50px;
+        }
+        .v2-about-input {
+            width: 100%;
+            margin-right: 0;
+        }
+        .form-title.text-center h2 {
+            font-size: 22px;
+        }
+        .department-section.v2 h2 {
+            font-size: 27px;
+        }
+        .imrn-client-details.v2 {
+            font-size: 15px;
+            font-weight: 100;
+            padding-top: 45px;
+            padding-left: 20px;
+            padding-right: 20px;
+            margin-bottom: 70px;
+        }
+        .speacialist-link.v2 {
+            width: 120px;
+            left: 50%;
+            margin-left: -60px;
+            margin-top: -28px;
+            transition: .4s;
+        }
+        .v2 .single-speacialist {
+            margin-top: 30px;
+        }
+        /*version three*/
+        .topbar-single-div {
+            display: none;
+        }
+        .top-social-link {
+            text-align: center;
+        }
+        .home-area.v3 .menu li a::before {
+            width: 50%;
+            left: 25%;
+        }
+        .top-search {
+            text-align: center;
+        }
+        .welcome-text.v3 h4 {
+            font-size: 16px;
+        }
+        .welcome-text.v3 h2 {
+            font-size: 24px;
+        }
+        .welcome-text.v3 h1 {
+            font-size: 25px;
+        }
+        .features-area.v3 .single-features.v3.active .service-link {
+            display: block;
+            text-align: center;
+            margin: 0 auto;
+            margin-top: 30px;
+        }
+        .features-area.v3 .single-features.v3 .service-link {
+            display: block;
+            opacity: 0;
+            margin: 0 auto;
+            margin-top: 30px;
+        }
+        .marign-top {
+            margin-top: 60px;
+        }
+        .v3 .single-speacialist {
+            margin-bottom: 30px;
+        }
+        .client-say-area .client-content {
+            padding-top: 30px;
+        }
+        .single-news-v3 {
+            margin-bottom: 40px;
+        }
+        /*single page css*/
+        .page-title h2 {
+            font-size: 21px;
+        }
+        .breadcrumb a {
+            font-size: 16px;
+        }
+        .single-chose h4 span {
+            padding-right: 10px;
+        }
+        .contat-usf {
+            margin-right: 0;
+            margin-bottom: 10px;
+        }
+        .margin-top-resposnive {
+            margin-top: 50px
+        }
+        .speacila-content {
+            padding-right: 10px;
+            padding-left: 10px;
+            padding-bottom: 10px;
+        }
+        .v2speal-services-area .media-heading {
+            margin-bottom: 15px;
+            font-size: 20px;
+            margin-top: 30px;
+        }
+        .home-area.single-title-area .page-title {
+            padding-left: 50px;
+        }
+        .home-area.v2.single-title-area .single-page-title .page-title {
+            padding-left: 0
+        }
+        .contact-title h1 {
+            margin-bottom: 30px;
+            font-size: 25px;
+        }
+        .contact-icon {
+            width: 16%;
+        }
+        .row.single-contact:last-child {
+            margin-bottom: 0
+        }
+        .contact-formv2 {
+            margin-top: 0
+        }
+        .home-area.v2.single-title-area .single-page-title {
+            height: 260px;
+        }
+        .home-area.v3.single-title-area .single-page-title {
+            height: 260px;
+        }
+        .single-news-post .post-title h2 {
+            font-size: 25px
+        }
+        .single-news-post {
+            padding: 10px;
+        }
+        .single-sidebar {
+            margin-left: 0
+        }
+        .version-second-news-slider {
+            margin-bottom: 50px;
+        }
+        .version-second-news-slider .news-prev {
+            height: 30px;
+            line-height: 30px;
+            width: 30px;
+            right: 30px;
+        }
+        .version-second-news-slider .news-next {
+            height: 30px;
+            line-height: 30px;
+            width: 30px;
+        }
+        .single-news-v2 .news-content-title h2 {
+            font-size: 15px;
+        }
+        .single-news-v2 .news-content-title p {
+            font-size: 12px;
+        }
+        .imrn-client-details.v2 {
+            background-image: none;
+            background-color: #fff
+        }
+      .speacialist-area .single-speacialist{
+              margin-bottom: 30px;
+      }
+      .welcome-text .read-more{
+              margin-top: 20px;
+      }
+      .v2 .nesws-media .pull-left{
+              float: none !important;
+      }
+      .v3.whychooseusAb3 .whychoseus-img{
+              margin-bottom: 50px;
+      }
+     .contact-formv2 .v2-about-input{
+             width: 100% !important;
+     }
+    }
+    
+    @media only screen and (min-width: 480px) and (max-width: 767px) {
+        .section-title h1 {
+            font-size: 24px;
+        }
+        .NextArrow {
+            right: 40%;
+        }
+        .PrevArrow {
+            left: 40%;
+        }
+    }
+    
+    .singleAbv2-slider.slick-slide.slick-cloned {}
