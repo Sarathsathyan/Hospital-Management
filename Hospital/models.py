@@ -15,3 +15,15 @@ class UserDetails(models.Model):
 
     def __str__(self):
         return str(self.user_id) if self.user_id else ''
+
+class UserMore(models.Model):
+    user_id = models.ForeignKey(UserDetails,on_delete=models.CASCADE)
+    address1 = models.CharField(max_length=100)
+    address2 = models.CharField(max_length=100)
+    case = models.IntegerField()
+    blood = models.CharField(max_length=50)
+    gender = models.CharField(max_length=50)
+    age = models.IntegerField()
+
+    def __str__(self):
+        return self.gender

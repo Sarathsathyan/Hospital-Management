@@ -6,8 +6,9 @@ from email_validator import validate_email, EmailNotValidError
 from django.shortcuts import render,redirect
 from django.contrib.auth.models import User
 from django.contrib.auth import login,logout,authenticate
+from django.contrib import auth
 from .forms import (AddUserForm)
-from .models import UserDetails
+from .models import UserDetails,UserMore
 # Create your views here.
 
 
@@ -55,11 +56,22 @@ def Register(request):
         str1 = 'VE'
         unique_id = str1 + str(num)
         try:
-            User.objects.create_user(username=username, email=email, first_name=firstname, last_name=lastname,
+            user=User.objects.create_user(username=username, email=email, first_name=firstname, last_name=lastname,
                                      password=password)
-            u_id = User.objects.get(username=username)
-            addusr = UserDetails(user_id=u_id, user_pass=password, user_phone=userphone, user_role=role)
-            addusr.save()
+            if role == "Doctor":
+                user.is_staff = True
+
+                user.save()
+                u_id = User.objects.get(username=username)
+                addusr = UserDetails(user_id=u_id, user_pass=password, user_phone=userphone, user_role=role)
+                addusr.save()
+            elif role == 'Patient':
+                user.is_staff = False
+                user.save()
+                u_id = User.objects.get(username=username)
+                addusr = UserDetails(user_id=u_id, user_pass=password, user_phone=userphone, user_role=role)
+                addusr.save()
+
 
         except:
             usr = User.objects.get(username=email)
@@ -74,7 +86,6 @@ def Register(request):
     return render(request, 'Hospital_Pages/register.html', context)
 
 def UserLogin(request):
-    role = UserDetails.objects.get(user_id_id=request.user.pk)
     if request.method == 'POST':
         username = request.POST['username']
         password = request.POST['pass1']
@@ -88,16 +99,75 @@ def UserLogin(request):
                 print('Welcome admin')
             else:
 
-                if request.user.is_active:
-                    if role.user_role == 'Doctor':
-                        messages.success(request, 'Welcome Doctor')
-                        return redirect('login')
-                    elif role.user_role == 'Patient':
-                        messages.success(request, 'Welcome Patient')
-                        return redirect('login')
-                    messages.success(request, 'Successfully logged In')
+                if request.user.is_staff:
+                    messages.success(request, 'Welcome Doctor')
+                    return redirect('doctorDash')
+                elif request.user.is_active:
+                    messages.success(request, 'Welcome Patient')
                     return redirect('login')
+
+
         messages.error(request, "Login failed")
         return redirect('login')
     return render(request, 'Hospital_Pages/login.html')
+
+def logout(request):
+    auth.logout(request)
+    return render(request,'Hospital_Pages/logout.html')
+
+def DoctorDashboard(request):
+
+    return render(request,'Doctor_Pages/doctorDashboard.html')
+
+def DoctorProfie(request):
+    user = request.user
+
+    details = UserDetails.objects.get(user_id_id=user.pk)
+
+    if request.method == 'POST':
+        if 'update' in request.POST:
+            address1 = request.POST['address1']
+            address2 = request.POST['address2']
+            case = request.POST['casePaper']
+            blood = request.POST['b-group']
+            gender = request.POST['gender']
+            age = request.POST['age']
+            data = UserMore(user_id_id=details.pk,address1=address1,address2=address2,case=case,blood=blood,gender=gender,age=age)
+            data.save()
+            messages.success(request,"User Info Updated")
+            return redirect('doctorProfile')
+        if 'newup' in request.POST:
+            address1 = request.POST['address1']
+            address2 = request.POST['address2']
+            case = request.POST['casePaper']
+            age = request.POST['age']
+            update = UserMore.objects.get(user_id_id=details.pk)
+
+            update.address1 = address1
+            update.address2 =address2
+            update.case = case
+            update.age = age
+            update.save()
+            messages.success(request,"Updated Successfully")
+
+
+
+
+    if UserMore.objects.filter(user_id_id=details.pk).exists():
+        users = UserMore.objects.get(user_id_id=details.pk)
+        context = {
+            'details': details,
+            'users' :users
+        }
+
+        return render(request, 'Doctor_Pages/doctorProfile.html', context)
+
+    context = {
+        'details': details,
+    }
+
+    return render(request,'Doctor_Pages/doctorProfile.html',context)
+
+
+
 

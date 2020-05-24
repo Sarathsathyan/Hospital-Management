@@ -1,0 +1,224 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+    <style>
+    .top{
+        margin-top: 100px;
+    }
+    .v2-about-input{
+        font-size: 20px;
+        height: 50px;
+    }
+    .log{
+        margin-top: 16px;
+    margin-left: 21px;
+    }
+    .requiredField{
+        display: none;
+
+    }
+    .head{
+        color: black;
+    }
+
+    </style>
+
+    <div id="preloader"></div>
+    <!-- start topbar area -->
+    <div class="v3-topbar">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-8">
+                    <div class="topbar-single-div">
+                        <i class="fa fa-globe"></i>
+                        <label>
+                            language
+                        </label>
+                        <span class="select-language">
+                    <select name="#" id="#">
+                        <option value="English">English</option>
+                        <option value="Bangla">Bangla</option>
+                        <option value="Hindi">Hindi</option>
+                        <option value="Arabic">Arabi</option>
+                    </select>
+                </span>
+                    </div>
+                    <div class="topbar-single-div">
+                        <i class="fa fa-flash"></i>
+                        <h4>Call us: 1.777.777.777</h4>
+                    </div>
+                    <div class="topbar-single-div">
+                        <i class="fa fa-envelope"></i>
+                        <h4>hello@theerfan.com</h4>
+                    </div>
+                </div>
+                <div class="col-sm-4 text-right">
+                    <div class="top-social-link">
+                        <a href="#" class="fa fa-facebook"></a>
+                        <a href="#" class="fa fa-twitter"></a>
+                        <a href="#" class="fa fa-linkedin"></a>
+                        <a href="#" class="fa fa-google-plus"></a>
+                        <a href="#" class="fa fa-tumblr"></a>
+                        <a href="#" class="fa fa-skype"></a>
+                        <a href="#" class="fa fa-vimeo"></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="version-3-logo">
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-12 text-center">
+                    <a class="site-logo" href="#"><img src="{% static 'img/logo.png' %}" alt="jigsawlab"></a>
+                </div>
+            </div>
+        </div>
+    </div>
+    {% include 'partials/_header.html' %}
+
+    <section class="top">
+
+
+                        <div class="container">
+
+                            <div class="row">
+                                    <div class="col-sm-6 v3-homeform" style="width: 100%">
+                                        {% include 'partials/_alerts.html' %}
+
+                                    <div class="about-form" style="background: transparent">
+
+                                        <div class="form-title text-center">
+                                            <h2 > <span class="head">Profile Info</span></h2>
+                                        </div>
+
+                                            <div class="v2-about-input">
+                                            <p> Name :</p><input type="text" style="color: #2b542c" class="in_text" value="{{ user.first_name }} {{ user.last_name }}" readonly>
+
+                                            </div>
+
+                                        <div class="v2-about-input">
+                                            <p> Email :</p><input type="text" style="color: #2b542c"  class="in_text" value="{{ user.email }}" readonly>
+
+                                            </div>
+
+
+
+
+                                    </div>
+
+
+
+                                </div>
+                            </div>
+{# UPDATE INFO #}
+
+                            <div >
+
+                            <div class="row">
+                                    <div class="col-sm-6 v3-homeform" style="width: 100%">
+
+
+                                    <div class="about-form" style="background: transparent">
+
+                                        <div class="form-title text-center">
+                                            <h2 > <span class="head">More Info</span></h2>
+                                        </div>
+                                        {% if details %}
+
+                                            <div class="v2-about-input">
+                                            <p> Username :</p><input type="text" style="color: #2b542c" class="in_text" value="{{ user.username }} " readonly>
+
+                                            </div>
+
+
+
+                                        <div class="v2-about-input ">
+                                            <p> Contact :</p><input type="text" style="color: #2b542c"  class="in_text" value="{{ details.user_phone }}" readonly>
+
+                                            </div>
+
+                                        {% endif %}
+                                     <div class="addin" style="margin-top: 132px">
+                                         <form method="post">{% csrf_token %}
+                                          {% if users %}
+                                              <div class="v2-about-input new">
+                                           Address: <input class="new" type="text" style="color: black;background: #1b6d85" name="address1" value="{{ users.address1 }}" required>
+                                        </div>
+                                        <div class="v2-about-input new">
+                                           Address2: <input type="text" style="color: black;background: #1b6d85"  name="address2" value="{{ users.address2 }}" required>
+                                        </div>
+                                         <div class="v2-about-input new">
+                                          Case:  <input class="new" type="number" style="color: black;background: #1b6d85"  name="casePaper" value="{{ users.case }}" required>
+                                        </div>
+                                        <div class="v2-about-input new">
+                                           Age: <input type="number" style="color: black;background: #1b6d85"  name="age" value="{{ users.age }}" required>
+                                        </div>
+                                        <div class="v2-about-submit">
+                                            <input type="submit" name="newup" value="Update Info">
+                                        </div>
+
+                                          {% else %}
+                                         <div class="v2-about-input">
+                                            <input type="text" style="color: black;background: #1b6d85" name="address1" placeholder="Address1" required>
+                                        </div>
+                                        <div class="v2-about-input">
+                                            <input type="text" style="color: black;background: #1b6d85"  name="address2" placeholder="Address2" required>
+                                        </div>
+                                         <div class="v2-about-input">
+                                            <input type="number" style="color: black;background: #1b6d85"  name="casePaper" placeholder="Case Paper" required>
+                                        </div>
+                                        <div class="v2-about-input">
+                                            <input type="number" style="color: black;background: #1b6d85"  name="age" placeholder="Age" required>
+                                        </div>
+                                         <div class="v2-about-input" >
+                                            <div class="v2-about-select" style="color: black;background: #1b6d85">
+                                                <select name="b-group" required>
+                                                    <option >Choose your Blood Group</option>
+                                                    <option value="A">A</option>
+                                                    <option value="A-POSITIVE">A Positive</option>
+                                                    <option value="B">B</option>
+                                                    <option value="B-POSITIVE">B Positive</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                         <div class="v2-about-input" >
+                                            <div class="v2-about-select" style="color: black;background: #1b6d85">
+                                                <select name="gender" required>
+                                                    <option >Gender</option>
+                                                    <option value="Male">Male</option>
+                                                    <option value="Female">Female</option>
+                                                    <option value="Others">Others</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                              <div class="v2-about-submit">
+                                            <input type="submit" name="update" value="Update Info">
+                                        </div>
+                                         {% endif %}
+
+                                         </form>
+                                    </div>
+
+
+
+                                    </div>
+
+
+
+
+
+                                </div>
+
+                            </div>
+
+
+        </div>
+
+                        </div>
+    </section>
+
+
+
+{% endblock %}

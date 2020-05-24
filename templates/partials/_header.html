@@ -18,11 +18,9 @@
                 <!-- Collect the nav links, forms, and other content for toggling -->
                 <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                     <ul class="nav menu navbar-left navbar-nav">
-                        <li class="current-menu-item"><a href="#home">home <span class="fa fa-angle-down"></span></a>
+                        <li class="current-menu-item"><a href="{% url 'index' %}">home <span class="fa fa-angle-down"></span></a>
                         <ul>
-                            <li><a href="index.html">Home Page 1</a></li>
-                            <li><a href="index-2.html">Home Page 2</a></li>
-                            <li><a href="index-3.html">Home Page 3</a></li>
+                            <li><a href="#">Covid Info</a></li>
                         </ul>
                         </li>
                         <li><a href="#about">about <span class="fa fa-angle-down"></span></a>
@@ -40,13 +38,42 @@
                                 <li><a href="medical-stuff-3.html">MEDICAL STUFFS 3</a></li>
                             </ul>
                         </li>
-                        <li><a href="#team">Services <span class="fa fa-angle-down"></span></a>
+                    {% if user %}
+                    {% if user.is_staff %}
+                        <li><a href="#">Your Appointments </a>
+
+                        </li>
+                    {% else %}
+                        <li><a href="#team">Your Appointments <span class="fa fa-angle-down"></span></a>
                             <ul>
                                 <li><a href="services-1.html">Services Page 1</a></li>
                                 <li><a href="services-2.html">Services Page 2</a></li>
                                 <li><a href="services-3.html">Services Page 3</a></li>
                             </ul>
                         </li>
+                    {% endif %}
+                    {% endif %}
+                    {% if user %}
+                    {% if user.is_staff %}
+                        <li><a href="{% url 'doctorProfile' %}">Profile <span class="fa fa-angle-down"></span></a>
+                        <ul>
+                                <li><a href="services-1.html">Edit Profile</a></li>
+                        </ul>
+
+                        </li>
+                    {% else %}
+                        <li><a href="#team">Your Appointments <span class="fa fa-angle-down"></span></a>
+                            <ul>
+                                <li><a href="services-1.html">Services Page 1</a></li>
+                                <li><a href="services-2.html">Services Page 2</a></li>
+                                <li><a href="services-3.html">Services Page 3</a></li>
+                            </ul>
+                        </li>
+                    {% endif %}
+                    {% endif %}
+                    {% if user.is_authenticated %}
+
+                    {% else %}
                         <li><a href="#pricing">news <span class="fa fa-angle-down"></span></a>
                             <ul>
                                 <li><a href="news-1.html">News Page 1</a></li>
@@ -54,6 +81,7 @@
                                 <li><a href="news-3.html">News Page 3</a></li>
                             </ul>
                         </li>
+                    {% endif %}
                         <li><a href="#contact">contact <span class="fa fa-angle-down"></span></a>
                         <ul>
                             <li><a href="contact-1.html">Contact Page 1</a></li>
@@ -62,7 +90,13 @@
                         </ul>
 
                         </li>
+                        {% if user.is_authenticated %}
+                            <li><a href="#"><span style="color: #8dc12b">Welcome : {{ user.first_name }}</span></a>  </li>
+                           <li><a href="{% url 'logout' %}">Logout</a></li>
+
+                        {% else %}
                         <li><a href="#contact">Login / Register</a></li>
+                        {% endif %}
                     </ul>
                     <ul class="nav top-search navbar-right navbar-nav">
                         <li>

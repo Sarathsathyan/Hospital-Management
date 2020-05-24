@@ -84,22 +84,13 @@
                                     <div class="about-form">
                                         <form method="post">{% csrf_token %}
                                         <div class="form-title text-center">
-                                            <h2> <span>Login Here</span></h2>
+                                            <h2> <span>Welcome Back</span></h2>
+                                             <p class="my-2">Login to manage Admin area.</p>
                                         </div>
-
-                                            <div class="v2-about-input">
-                                            <input type="text" name="username" placeholder="Username" required>
-
-                                            </div>
-
-                                        <div class="v2-about-input">
-                                            <input type="password" name="pass1" placeholder="Password" required>
-                                        </div>
-
 
 
                                         <div class="v2-about-input log">
-                                          Dont have account ? : <a href="">Register</a>
+                                            <a href="{% url 'login' %}" class="btn btn-default">Click Here To Login</a>
                                         </div>
                                         <div class="v2-about-submit">
                                             <input type="submit" value="Login">
