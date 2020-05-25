@@ -1,0 +1,203 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+    <style>
+    .top{
+        margin-top: 100px;
+    }
+    .v2-about-input{
+        font-size: 20px;
+        height: 50px;
+    }
+    .log{
+        margin-top: 16px;
+    margin-left: 21px;
+    }
+    .requiredField{
+        display: none;
+
+    }
+    .head{
+        color: black;
+    }
+    .pres{
+            margin-top: 28px;
+
+    margin-right: 59px;
+}
+
+
+    </style>
+
+    <div id="preloader"></div>
+    <!-- start topbar area -->
+    <div class="v3-topbar">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-8">
+                    <div class="topbar-single-div">
+                        <i class="fa fa-globe"></i>
+                        <label>
+                            language
+                        </label>
+                        <span class="select-language">
+                    <select name="#" id="#">
+                        <option value="English">English</option>
+                        <option value="Bangla">Bangla</option>
+                        <option value="Hindi">Hindi</option>
+                        <option value="Arabic">Arabi</option>
+                    </select>
+                </span>
+                    </div>
+                    <div class="topbar-single-div">
+                        <i class="fa fa-flash"></i>
+                        <h4>Call us: 8073050590</h4>
+                    </div>
+                    <div class="topbar-single-div">
+                        <i class="fa fa-envelope"></i>
+                        <h4>sarathsathyan98@gmail.com</h4>
+                    </div>
+                </div>
+                <div class="col-sm-4 text-right">
+                    <div class="top-social-link">
+                        <a href="#" class="fa fa-facebook"></a>
+                        <a href="#" class="fa fa-twitter"></a>
+                        <a href="#" class="fa fa-linkedin"></a>
+                        <a href="#" class="fa fa-google-plus"></a>
+                        <a href="#" class="fa fa-tumblr"></a>
+                        <a href="#" class="fa fa-skype"></a>
+                        <a href="#" class="fa fa-vimeo"></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="version-3-logo">
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-12 text-center">
+                    <a class="site-logo" href="#"><img src="{% static 'img/logo.png' %}" alt="jigsawlab"></a>
+                </div>
+            </div>
+        </div>
+    </div>
+    {% include 'partials/_header.html' %}
+
+    <section class="top">
+
+
+                        <div class="container">
+
+                            <div class="row">
+                                    <div class="col-sm-6 v3-homeform" style="width: 100%">
+                                        {% include 'partials/_alerts.html' %}
+
+                                    <div class="about-form" style="background: transparent">
+                                        <form method="post">{% csrf_token %}
+
+                                        <div class="form-title text-center">
+                                            <h2 > <span class="head">Create Prescription</span></h2>
+                                        </div>
+
+                                            <div class="v2-about-input" style="width: 31%">
+                                            <p> Prescription :</p><input type="text" style="color: #2b542c" class="in_text" name="prescrip">
+
+                                            </div>
+
+                                        <div class="v2-about-input" style="width: 31%">
+                                            <p> Disease :</p><input type="text" style="color: #2b542c"  class="in_text" name="disease">
+
+                                            </div>
+                                        <div class="v2-about-input" style="width: 31%">
+                                            <p> Patient :</p>
+
+                                        {% if lists %}
+
+
+                                            <div class="v2-about-select" style="color: black;background: #1b6d85">
+                                                <select name="patient" required>
+                                                    {% for i in lists %}
+                                                        {% if i.is_active and not i.is_staff %}
+
+                                                    <option value="{{ i.first_name }} {{ i.last_name }}">{{ i.first_name }} {{ i.last_name }}</option>
+
+                                                        {% endif %}
+                                                    {% endfor %}
+                                                </select>
+                                            </div>
+
+                                        {% endif %}
+
+                                            </div>
+
+                                            <div class="v2-about-submit">
+
+                                                <input type="submit" class="pres" name="addPres" value="Create Prescription">
+
+                                            </div>
+
+
+                                        </form>
+
+
+                                    </div>
+
+
+
+                                </div>
+                            </div>
+{# UPDATE INFO #}
+
+                            <div >
+
+                            <div class="row">
+                                    <div class="col-sm-6 v3-homeform" style="width: 100%">
+
+
+                                    <div class="about-form" style="background: transparent">
+
+                                        <div class="form-title text-center">
+                                            <h2 > <span class="head">Prescriptions</span></h2>
+                                        </div>
+
+
+                                            <table class="table">
+                                              <thead class="thead-light" style="color: #1b6d85">
+                                                <tr>
+                                                  <th scope="col">Date</th>
+                                                  <th scope="col">Prescription</th>
+                                                  <th scope="col">Disease</th>
+                                                  <th scope="col">Patient Name</th>
+                                                </tr>
+                                              </thead>
+                                              <tbody>
+                                              {% for pres in press %}
+                                                <tr>
+                                                  <th scope="row">{{ pres.create_date }}</th>
+                                                  <td>{{ pres.prescrip }}</td>
+                                                  <td>{{ pres.disease }}</td>
+                                                  <td>{{ pres.patient }}</td>
+                                                </tr>
+                                              {% endfor %}
+                                              </tbody>
+                                            </table>
+
+
+
+                                    </div>
+
+
+
+                                    </div>
+
+                            </div>
+
+                            </div>
+
+                        </div>
+    </section>
+
+
+
+{% endblock %}

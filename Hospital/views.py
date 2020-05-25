@@ -8,12 +8,16 @@ from django.contrib.auth.models import User
 from django.contrib.auth import login,logout,authenticate
 from django.contrib import auth
 from .forms import (AddUserForm)
-from .models import UserDetails,UserMore
+from .models import UserDetails,UserMore,Prescription,Appointments
 # Create your views here.
 
 
 def index(request):
     return render(request, 'Hospital_Pages/index.html')
+
+def About(request):
+    return render(request,'Hospital_Pages/about.html')
+
 
 def Register(request):
     form = AddUserForm
@@ -96,15 +100,20 @@ def UserLogin(request):
         if user is not None:
             login(request, user)
             if request.user.is_staff and request.user.is_superuser:
+                if user.username == "reception":
+                    messages.success(request, "Welcome Receptionalist")
+                    return redirect('login')
+
                 print('Welcome admin')
             else:
 
-                if request.user.is_staff:
+                if request.user.is_staff and not request.user.is_superuser:
                     messages.success(request, 'Welcome Doctor')
                     return redirect('doctorDash')
-                elif request.user.is_active:
+                elif request.user.is_active and not request.user.is_superuser:
                     messages.success(request, 'Welcome Patient')
-                    return redirect('login')
+                    return redirect('index')
+
 
 
         messages.error(request, "Login failed")
@@ -150,9 +159,6 @@ def DoctorProfie(request):
             update.save()
             messages.success(request,"Updated Successfully")
 
-
-
-
     if UserMore.objects.filter(user_id_id=details.pk).exists():
         users = UserMore.objects.get(user_id_id=details.pk)
         context = {
@@ -168,6 +174,95 @@ def DoctorProfie(request):
 
     return render(request,'Doctor_Pages/doctorProfile.html',context)
 
+def DoctorAppointmnets(request):
+    return render(request,'Doctor_Pages/doctorAppointments.html')
+
+def DoctorPrescription(request):
+    if request.user.is_active and request.user.is_staff:
+        user = request.user
+        patients = User.objects.all()
+        details = UserDetails.objects.get(user_id_id=user.pk)
+        if request.method == "POST":
+            if 'addPres' in request.POST:
+                prescrip = request.POST['prescrip']
+                disease = request.POST['disease']
+                patient = request.POST['patient']
+
+
+                data = Prescription(user_id_id=details.pk,prescrip=prescrip,patient=patient,disease=disease)
+                data.save()
+                messages.success(request,"Prescription added")
 
 
 
+        prescriptions = Prescription.objects.order_by("-create_date")
+        context = {
+            'press':prescriptions,
+            'lists':patients,
+        }
+
+        return render(request,'Doctor_Pages/doctorPrescription.html',context)
+
+    else:
+        return redirect('login')
+
+# Patient
+
+def PatientMedical(request):
+    user = request.user
+    p_name = user.first_name+" "+user.last_name
+    print(p_name)
+
+    medical = Prescription.objects.filter(patient=p_name)
+    context ={
+        'medical':medical,
+    }
+    return render(request,'Patient_Pages/patientMedical.html',context)
+
+
+def ReceptionDash(request):
+    user = request.user
+
+
+
+    appointments = Appointments.objects.order_by("date")
+
+    total = appointments.count()
+    done = Appointments.objects.filter(status='Completed')
+    t_done = done.count()
+    up = Appointments.objects.filter(status='Pending')
+    u_done = up.count()
+
+
+    context ={
+        'appoint':appointments,
+        'total' : total,
+        't_done' :t_done,
+        'u_done':u_done
+    }
+
+    return render(request,'Hospital_Pages/receptionDashboard.html',context)
+
+def ReceptionAppointment(request):
+
+    user = request.user
+    lists = User.objects.all()
+
+    if request.method == 'POST':
+        if 'create' in request.POST:
+            date = request.POST['date1']
+            time = request.POST['time']
+            doctor = request.POST['doctors']
+            patient = request.POST['patients']
+            status = request.POST['status']
+
+            data = Appointments(date=date,time=time,doctor=doctor,patient=patient,status=status)
+            data.save()
+            messages.success(request,"Appointement created")
+            return redirect('receptionDash')
+
+    context ={
+        'lists':lists
+    }
+
+    return render(request,'Hospital_Pages/receptionAppointment.html',context)

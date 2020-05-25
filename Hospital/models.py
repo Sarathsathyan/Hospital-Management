@@ -27,3 +27,25 @@ class UserMore(models.Model):
 
     def __str__(self):
         return self.gender
+
+class Prescription(models.Model):
+    user_id = models.ForeignKey(UserDetails,on_delete=models.CASCADE)
+    prescrip = models.CharField(max_length=100)
+    disease = models.CharField(max_length=100)
+    patient = models.CharField(max_length=100)
+    create_date = models.DateTimeField(default=datetime.now,null=True)
+
+    def __str__(self):
+        return self.patient
+
+class Appointments(models.Model):
+    date = models.DateField()
+    time = models.TimeField()
+    doctor = models.CharField(max_length=100)
+    patient =  models.CharField(max_length=100)
+    status = models.CharField(max_length=50)
+
+    def __str__(self):
+        return self.date
+
+

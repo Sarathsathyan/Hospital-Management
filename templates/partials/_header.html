@@ -21,53 +21,50 @@
                         <li class="current-menu-item"><a href="{% url 'index' %}">home <span class="fa fa-angle-down"></span></a>
                         <ul>
                             <li><a href="#">Covid Info</a></li>
+                            <li><a href="{% url 'about' %}">about</a></li>
                         </ul>
                         </li>
-                        <li><a href="#about">about <span class="fa fa-angle-down"></span></a>
-                        <ul>
-                            <li><a href="about-1.html">About Page 1</a></li>
-                            <li><a href="about-2.html">About Page 2</a></li>
-                            <li><a href="about-3.html">About Page 3</a></li>
-                        </ul>
 
-                        </li>
-                        <li><a href="#portfolio">MEDICAL STUFFS <span class="fa fa-angle-down"></span> </a>
-                            <ul>
-                                <li><a href="medical-stuff-1.html">MEDICAL STUFFS 1</a></li>
-                                <li><a href="medical-stuff-2.html">MEDICAL STUFFS 2</a></li>
-                                <li><a href="medical-stuff-3.html">MEDICAL STUFFS 3</a></li>
-                            </ul>
-                        </li>
                     {% if user %}
-                    {% if user.is_staff %}
-                        <li><a href="#">Your Appointments </a>
+                        {% if user.is_staff and not user.is_superuser %}
+                        <li><a href="{% url 'doctorPrescription' %}">Prescriptions </a>
 
                         </li>
-                    {% else %}
-                        <li><a href="#team">Your Appointments <span class="fa fa-angle-down"></span></a>
-                            <ul>
-                                <li><a href="services-1.html">Services Page 1</a></li>
-                                <li><a href="services-2.html">Services Page 2</a></li>
-                                <li><a href="services-3.html">Services Page 3</a></li>
-                            </ul>
+
+                        {% elif user.is_active and user.is_superuser%}
+                            <li><a href="#">Contact </a>
+
+                            </li>
+
+                        {% endif %}
+                    {% endif %}
+                    {% if user %}
+                    {% if user.is_staff and not user.is_superuser%}
+                        <li><a href="{% url 'doctorAppointments' %}">Your Appointments </a>
+
+                        </li>
+                    {% elif user.is_active and not user.is_staff %}
+                        <li><a href="#team">Your Appointments</a>
+
                         </li>
                     {% endif %}
                     {% endif %}
                     {% if user %}
-                    {% if user.is_staff %}
+                    {% if user.is_staff and not user.is_superuser %}
                         <li><a href="{% url 'doctorProfile' %}">Profile <span class="fa fa-angle-down"></span></a>
-                        <ul>
-                                <li><a href="services-1.html">Edit Profile</a></li>
-                        </ul>
+
 
                         </li>
-                    {% else %}
-                        <li><a href="#team">Your Appointments <span class="fa fa-angle-down"></span></a>
-                            <ul>
-                                <li><a href="services-1.html">Services Page 1</a></li>
-                                <li><a href="services-2.html">Services Page 2</a></li>
-                                <li><a href="services-3.html">Services Page 3</a></li>
-                            </ul>
+                    {% elif user.is_active and not user.is_staff %}
+
+                        <li><a href="#">Invoice & payments <span class="fa fa-angle-down"></span></a>
+
+                        </li>
+                        <li><a href="{% url 'doctorProfile' %}">Profile</a>
+
+                        </li>
+                         <li><a href="{% url 'patientMedical' %}">Medical History</a>
+
                         </li>
                     {% endif %}
                     {% endif %}
@@ -82,14 +79,9 @@
                             </ul>
                         </li>
                     {% endif %}
-                        <li><a href="#contact">contact <span class="fa fa-angle-down"></span></a>
-                        <ul>
-                            <li><a href="contact-1.html">Contact Page 1</a></li>
-                            <li><a href="contact-2.html">Contact Page 2</a></li>
-                            <li><a href="contact-3.html">Contact Page 3</a></li>
-                        </ul>
 
-                        </li>
+
+
                         {% if user.is_authenticated %}
                             <li><a href="#"><span style="color: #8dc12b">Welcome : {{ user.first_name }}</span></a>  </li>
                            <li><a href="{% url 'logout' %}">Logout</a></li>
@@ -97,12 +89,13 @@
                         {% else %}
                         <li><a href="#contact">Login / Register</a></li>
                         {% endif %}
+
+                    {% if user.is_superuser %}
+                        <li><a href="{% url 'receptionDash' %}" >receptionalist </a></li>
+
+                    {% endif %}
                     </ul>
-                    <ul class="nav top-search navbar-right navbar-nav">
-                        <li>
-                            <a href="#" class="fa fa-search"></a>
-                        </li>
-                    </ul>
+
                 </div>
             </div>
         </nav>
