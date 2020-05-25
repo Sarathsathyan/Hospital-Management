@@ -20,7 +20,7 @@
                     <ul class="nav menu navbar-left navbar-nav">
                         <li class="current-menu-item"><a href="{% url 'index' %}">home <span class="fa fa-angle-down"></span></a>
                         <ul>
-                            <li><a href="#">Covid Info</a></li>
+                            <li><a href="{% url 'covid' %}">Covid Live Updates</a></li>
                             <li><a href="{% url 'about' %}">about</a></li>
                         </ul>
                         </li>
@@ -32,9 +32,7 @@
                         </li>
 
                         {% elif user.is_active and user.is_superuser%}
-                            <li><a href="#">Contact </a>
 
-                            </li>
 
                         {% endif %}
                     {% endif %}
@@ -57,7 +55,7 @@
                         </li>
                     {% elif user.is_active and not user.is_staff and not user.is_superuser%}
 
-                        <li><a href="#">Invoice & payments <span class="fa fa-angle-down"></span></a>
+                        <li><a href="{% url 'patientInvoice' %}">Invoice & payments <span class="fa fa-angle-down"></span></a>
 
                         </li>
                         <li><a href="{% url 'doctorProfile' %}">Profile</a>
@@ -71,13 +69,7 @@
                     {% if user.is_authenticated %}
 
                     {% else %}
-                        <li><a href="#pricing">news <span class="fa fa-angle-down"></span></a>
-                            <ul>
-                                <li><a href="news-1.html">News Page 1</a></li>
-                                <li><a href="news-2.html">News Page 2</a></li>
-                                <li><a href="news-3.html">News Page 3</a></li>
-                            </ul>
-                        </li>
+
                     {% endif %}
 
 
@@ -87,14 +79,16 @@
                            <li><a href="{% url 'logout' %}">Logout</a></li>
 
                         {% else %}
-                        <li><a href="#contact">Login / Register</a></li>
+                        <li><a href="{% url 'register' %}">Login / Register</a></li>
                         {% endif %}
 
-                    {% if user.is_staff %}
+                    {% if user.is_staff and user.is_superuser%}
                         <li><a href="{% url 'receptionDash' %}" >receptionalist </a></li>
 
                     {% endif %}
+                   <li><a href="{% url 'contact' %}">Contact </a>
 
+                            </li>
                     </ul>
 
                 </div>

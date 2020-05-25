@@ -24,27 +24,14 @@
         <div class="container">
             <div class="row">
                 <div class="col-sm-8">
-                    <div class="topbar-single-div">
-                        <i class="fa fa-globe"></i>
-                        <label>
-                            language
-                        </label>
-                        <span class="select-language">
-                    <select name="#" id="#">
-                        <option value="English">English</option>
-                        <option value="Bangla">Bangla</option>
-                        <option value="Hindi">Hindi</option>
-                        <option value="Arabic">Arabi</option>
-                    </select>
-                </span>
-                    </div>
+
                     <div class="topbar-single-div">
                         <i class="fa fa-flash"></i>
-                        <h4>Call us: 1.777.777.777</h4>
+                        <h4>Call us: 8073050590</h4>
                     </div>
                     <div class="topbar-single-div">
                         <i class="fa fa-envelope"></i>
-                        <h4>hello@theerfan.com</h4>
+                        <h4>sarathsathyan98@gmail.com</h4>
                     </div>
                 </div>
                 <div class="col-sm-4 text-right">
@@ -119,7 +106,7 @@
                                         </div>
 
                                         <div class="v2-about-input log">
-                                          Already have account : <a href="">Login</a>
+                                          Already have account : <a href="{% url 'login' %}">Login</a>
                                         </div>
                                         <div class="v2-about-submit">
                                             <input type="submit" value="Register">
@@ -188,27 +175,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-sm-5">
-                    <div class="media-carea-contact">
-                        <form action="http://www.kazierfan.com/themes/medicre/medicre/index.html">
-                            <div class="single-form">
-                                <input class="form-control" type="text" placeholder="Name">
-                            </div>
-                            <div class="single-form">
-                                <input class="form-control" type="text" placeholder="Email">
-                            </div>
-                            <div class="single-form">
-                                <input class="form-control" type="text" placeholder="Phone number">
-                            </div>
-                            <div class="single-text-area">
-                                <textarea class="form-control" name="message" id="message" cols="30" rows="10"></textarea>
-                            </div>
-                            <div class="single-submit">
-                                <input class="form-control text-center" type="submit" value="submit now">
-                            </div>
-                        </form>
-                    </div>
-                </div>
+                  {% include 'partials/_footer.html' %}
             </div>
         </div>
     </footer>

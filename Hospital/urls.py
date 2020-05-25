@@ -16,11 +16,14 @@ urlpatterns = [
 
     path('patientMedical/', views.PatientMedical, name='patientMedical'),
     path('patientAppointments/', views.PatientAppoint, name='patientAppoint'),
+    path('patientInvoice/', views.PatientInvoice, name='patientInvoice'),
 
     path('reception/', views.ReceptionDash, name='receptionDash'),
     path('createAppointment/', views.ReceptionAppointment, name='receptionAppointment'),
     path('createPatient/', views.ReceptionPatient, name='receptionPatient'),
-
+    path('covidUpdate/',views.CovidUpdate,name='covid'),
     path('hrDashboard/',views.hrDash,name='hrDash'),
+
+    path('contact/', views.Contact, name='contact'),
     path('login/',views.UserLogin,name='login'),
     ]

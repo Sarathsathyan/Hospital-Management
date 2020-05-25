@@ -1,5 +1,7 @@
 import re
 import random
+import http.client
+import json
 
 from django.contrib import messages
 from email_validator import validate_email, EmailNotValidError
@@ -8,7 +10,7 @@ from django.contrib.auth.models import User
 from django.contrib.auth import login,logout,authenticate
 from django.contrib import auth
 from .forms import (AddUserForm)
-from .models import UserDetails,UserMore,Prescription,Appointments,CreatePatient
+from .models import UserDetails,UserMore,Prescription,Appointments,CreatePatient,patientInvoice,contact
 # Create your views here.
 
 
@@ -111,7 +113,7 @@ def UserLogin(request):
 
                 if request.user.is_staff and not request.user.is_superuser:
                     messages.success(request, 'Welcome Doctor')
-                    return redirect('doctorDash')
+                    return redirect('index')
                 elif request.user.is_active and not request.user.is_superuser:
                     messages.success(request, 'Welcome Patient')
                     return redirect('index')
@@ -177,7 +179,16 @@ def DoctorProfie(request):
     return render(request,'Doctor_Pages/doctorProfile.html',context)
 
 def DoctorAppointmnets(request):
-    return render(request,'Doctor_Pages/doctorAppointments.html')
+
+    user = request.user
+    name = user.first_name+" "+user.last_name
+    if Appointments.objects.filter(doctor=name).exists():
+        appints = Appointments.objects.filter(doctor=name)
+
+        context ={
+            'appoints':appints
+        }
+    return render(request,'Doctor_Pages/doctorAppointments.html',context)
 
 def DoctorPrescription(request):
     if request.user.is_active and request.user.is_staff:
@@ -232,10 +243,23 @@ def PatientAppoint(request):
     return render(request,"Patient_Pages/appointments.html",context)
 
 
+def PatientInvoice(request):
+    user = request.user
+    userdetail = UserDetails.objects.get(user_id_id=user.pk)
+    print(userdetail.pk)
+    invoice = patientInvoice.objects.filter(user_id_id=user.pk)
+
+    print(invoice)
+
+    context ={
+        'invoice' :invoice
+    }
+    return render(request,'Patient_Pages/patientInvoice.html',context)
+
 def ReceptionDash(request):
     user = request.user
 
-    patients = CreatePatient.objects.filter("create_date")
+    patients = CreatePatient.objects.order_by("create_date")
 
 
     appointments = Appointments.objects.order_by("date")
@@ -323,3 +347,66 @@ def hrDash(request):
     }
 
     return render(request,"Hospital_Pages/hrDashboard.html",context)
+
+
+
+def CovidUpdate(request):
+    conn = http.client.HTTPSConnection("covid-19-coronavirus-statistics.p.rapidapi.com")
+
+    headers = {
+        'x-rapidapi-host': "covid-19-coronavirus-statistics.p.rapidapi.com",
+        'x-rapidapi-key': "9dcb69727amsh75270b63ce4637ap1201afjsn444b900fc39e"
+    }
+
+    conn.request("GET", "/v1/stats?country=India", headers=headers)
+
+    res = conn.getresponse()
+    data = res.read()
+
+    # print(data.decode("utf-8"))
+    data = data.decode("utf-8")
+    data = json.loads(data)
+    data = data['data']
+    data = data['covid19Stats']
+    print(data)
+    for i in data:
+        country = i['country']
+        deaths = i['deaths']
+        confirmed = i['confirmed']
+        recover = i['recovered']
+        last_update = i['lastUpdate']
+    context = {
+        'country': country,
+        'deaths': deaths,
+        'confirmed': confirmed,
+        'recover': recover,
+        'last_update': last_update
+    }
+
+    # print(data['data'])
+
+
+    # Countrys affected corona
+    return render(request,'Hospital_Pages/covidDash.html',context)
+
+
+
+def Contact(request):
+    form = AddUserForm
+    if request.method == 'POST':
+        if 'sub' in request.POST:
+            name = request.POST['name']
+            phone = request.POST['user_phone']
+            email = request.POST['email']
+            message = request.POST['message']
+            date = request.POST['date']
+
+            data = contact(name=name,phone=phone,email=email,comment=message,date=date)
+            data.save()
+            messages.success(request,"Sumbitted successfully")
+            return redirect('contact')
+
+    context ={
+        'form':form,
+    }
+    return render(request,'Hospital_Pages/contact.html',context)

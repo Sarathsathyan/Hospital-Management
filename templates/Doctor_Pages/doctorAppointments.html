@@ -1,8 +1,11 @@
-{% extends 'base.html' %}{% load static %}{% load crispy_forms_tags %}
-
+{% extends 'base.html' %}
+{% load static %}
 {% block content %}
 
     <style>
+    .top{
+        margin-top: 100px;
+    }
     .v2-about-input{
         font-size: 20px;
         height: 50px;
@@ -15,6 +18,42 @@
         display: none;
 
     }
+    .head{
+        color: black;
+            background: darkseagreen;
+    /* width: 35%; */
+    border-radius: 8px;
+
+    }
+    .para{
+        font-size: 30px;
+    font-weight: bold;
+    color: steelblue;
+    }
+    {# table#}
+    .pos{
+        font-size: 15px;
+        position: absolute;
+        width: 40%;
+    }
+
+    .pat{
+
+    left: 48%;
+    position: relative;
+}
+    .headfst{    margin-top: -32px;
+    position: absolute}
+    .headpos {
+        position: absolute;
+        left: 77%;
+        right: 6%;
+        margin-top: -35px;
+        text-align: end;
+    }
+    .copyriht-area{
+        margin-top: 12%;
+    }
 
     </style>
 
@@ -24,27 +63,14 @@
         <div class="container">
             <div class="row">
                 <div class="col-sm-8">
-                    <div class="topbar-single-div">
-                        <i class="fa fa-globe"></i>
-                        <label>
-                            language
-                        </label>
-                        <span class="select-language">
-                    <select name="#" id="#">
-                        <option value="English">English</option>
-                        <option value="Bangla">Bangla</option>
-                        <option value="Hindi">Hindi</option>
-                        <option value="Arabic">Arabi</option>
-                    </select>
-                </span>
-                    </div>
+
                     <div class="topbar-single-div">
                         <i class="fa fa-flash"></i>
-                        <h4>Call us: 1.777.777.777</h4>
+                        <h4>Call us: 8073050590</h4>
                     </div>
                     <div class="topbar-single-div">
                         <i class="fa fa-envelope"></i>
-                        <h4>hello@theerfan.com</h4>
+                        <h4>sarathsathyan98@gmail.com</h4>
                     </div>
                 </div>
                 <div class="col-sm-4 text-right">
@@ -70,52 +96,72 @@
             </div>
         </div>
     </div>
-    <section class="home-area v3">
     {% include 'partials/_header.html' %}
 
-    <!-- start single page title area -->
-        <div class="info">
+    <section class="top">
+
+
                         <div class="container">
+
+
+{# UPDATE INFO #}
+
+                            <div >
 
                             <div class="row">
                                     <div class="col-sm-6 v3-homeform" style="width: 100%">
-                                        {% include 'partials/_alerts.html' %}
 
-                                    <div class="about-form">
-                                        <form method="post">{% csrf_token %}
-                                        <div class="form-title text-center">
-                                            <h2> <span>Login Here</span></h2>
-                                        </div>
 
-                                            <div class="v2-about-input">
-                                            <input type="text" name="username" placeholder="Username" required>
-
-                                            </div>
-
-                                        <div class="v2-about-input">
-                                            <input type="password" name="pass1" placeholder="Password" required>
-                                        </div>
+                                    <div class="about-form" style="background: transparent">
 
 
 
-                                        <div class="v2-about-input log">
-                                          Dont have account ? : <a href="">Register</a>
-                                        </div>
-                                        <div class="v2-about-submit">
-                                            <input type="submit" value="Login">
-                                        </div>
-                                        </form>
+
+
+
+{#            patients                        #}
+
+                                    <table class="table">
+                                              <thead class="thead-light" style="color: #1b6d85;font-size: 20px">
+                                                <tr>
+                                                  <th scope="col">Date</th>
+                                                  <th scope="col">Time</th>
+                                                  <th scope="col">Patient Info</th>
+                                                </tr>
+                                              </thead>
+                                              <tbody>
+                                              {% for m in appoints %}
+
+                                                <tr style="font-size: 20px">
+                                                  <th scope="row">{{ m.date }}</th>
+                                                  <td>{{ m.time }}</td>
+                                                  <td>{{ m.patient }}</td>
+                                                </tr>
+                                              {% endfor %}
+                                              </tbody>
+                                            </table>
+
+
+
+
                                     </div>
 
+
+
+
+
                                 </div>
+
                             </div>
-                        </div>
+
+
         </div>
 
-
+                        </div>
     </section>
 
 
+    {% include 'partials/_footer.html' %}
 
 
 {% endblock %}

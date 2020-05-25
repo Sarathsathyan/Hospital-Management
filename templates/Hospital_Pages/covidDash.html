@@ -20,7 +20,6 @@
     }
     .head{
         color: black;
-            background: darkseagreen;
     /* width: 35%; */
     border-radius: 8px;
 
@@ -30,27 +29,15 @@
     font-weight: bold;
     color: steelblue;
     }
-    {# table#}
-    .pos{
-        font-size: 15px;
-        position: absolute;
-        width: 40%;
-    }
-
-    .pat{
-
-    left: 48%;
-    position: relative;
+    .zoom:hover {
+  -ms-transform: scale(1); /* IE 9 */
+  -webkit-transform: scale(1); /* Safari 3-8 */
+    transition-duration: 2s;
+  transform: scale(1.2);
 }
-    .headfst{    margin-top: -32px;
-    position: absolute}
-    .headpos {
-        position: absolute;
-        left: 77%;
-        right: 6%;
-        margin-top: -35px;
-        text-align: end;
-    }
+
+    {# table#}
+
 
 
     </style>
@@ -61,6 +48,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-sm-8">
+
 
                     <div class="topbar-single-div">
                         <i class="fa fa-flash"></i>
@@ -101,45 +89,33 @@
 
                         <div class="container">
 
-
-{# UPDATE INFO #}
-
-                            <div >
-
                             <div class="row">
                                     <div class="col-sm-6 v3-homeform" style="width: 100%">
-
+                                        {% include 'partials/_alerts.html' %}
 
                                     <div class="about-form" style="background: transparent">
 
+                                        <div class="form-title text-center">
+                                            <h2 > <span class="head">Covid 19 Live Updates</span></h2>
+                                        </div>
 
+                                            <div class="v2-about-input zoom" style="width: 24%;height: 25%">
+                                            <p class="para"> Country :</p><input type="text" style="color: #2b542c;font-size: 50px" class="in_text" value="{{ country }}" readonly>
 
+                                            </div>
 
+                                        <div class="v2-about-input zoom"style="width: 24%;height: 25%">
+                                            <p class="para"> Confirmed :</p><input type="text" style="color: #2b542c;font-size: 50px"  class="in_text" value="{{ confirmed }}" readonly>
 
+                                            </div>
+                                        <div class="v2-about-input zoom"style="width: 24%;height: 25%">
+                                            <p class="para"> Deaths :</p><input type="text" style="color: red;font-size: 50px"  class="in_text" value="{{ deaths }}" readonly>
 
-{#            patients                        #}
+                                            </div>
+                                        <div class="v2-about-input zoom"style="width: 24%;height: 25%">
+                                            <p class="para"> Recovered :</p><input type="text" style="color: green;font-size: 50px"  class="in_text" value="{{ recover }}" readonly>
 
-                                    <table class="table">
-                                              <thead class="thead-light" style="color: #1b6d85;font-size: 15px">
-                                                <tr>
-                                                  <th scope="col">Date</th>
-                                                  <th scope="col">Time</th>
-                                                  <th scope="col">Consulting Doctor</th>
-                                                  <th scope="col">Status</th>
-                                                </tr>
-                                              </thead>
-                                              <tbody>
-                                              {% for m in appoints %}
-
-                                                <tr style="font-size: 14px">
-                                                  <th scope="row">{{ m.date }}</th>
-                                                  <td>{{ m.time }}</td>
-                                                  <td>{{ m.doctor }}</td>
-                                                  <td>{{ m.status }}</td>
-                                                </tr>
-                                              {% endfor %}
-                                              </tbody>
-                                            </table>
+                                            </div>
 
 
 
@@ -148,11 +124,13 @@
 
 
 
-
-
                                 </div>
-
                             </div>
+{# UPDATE INFO #}
+
+                            <div >
+
+
 
 
         </div>
@@ -161,7 +139,7 @@
     </section>
 
 
-    <div class="copyriht-area">
+    <div class="copyriht-area" style="margin-top: 100px">
         <div class="container">
             <div class="row">
                 <div class="col-sm-6 text-left">

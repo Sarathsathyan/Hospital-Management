@@ -120,22 +120,22 @@
 {#            patients                        #}
 
                                     <table class="table">
-                                              <thead class="thead-light" style="color: #1b6d85;font-size: 15px">
+                                              <thead class="thead-light" style="color: #1b6d85;font-size: 20px">
                                                 <tr>
+                                                  <th scope="col">Invoice</th>
+                                                  <th scope="col">Paid</th>
                                                   <th scope="col">Date</th>
-                                                  <th scope="col">Time</th>
-                                                  <th scope="col">Consulting Doctor</th>
-                                                  <th scope="col">Status</th>
+                                                  <th scope="col">Oustanding</th>
                                                 </tr>
                                               </thead>
                                               <tbody>
-                                              {% for m in appoints %}
+                                              {% for m in invoice %}
 
-                                                <tr style="font-size: 14px">
-                                                  <th scope="row">{{ m.date }}</th>
-                                                  <td>{{ m.time }}</td>
-                                                  <td>{{ m.doctor }}</td>
-                                                  <td>{{ m.status }}</td>
+                                                <tr style="font-size: 20px">
+                                                  <th scope="row">{{ m.pk }}</th>
+                                                  <td>{{ m.paid }}</td>
+                                                  <td>{{ m.date }}</td>
+                                                  <td>{{ m.outstand }}</td>
                                                 </tr>
                                               {% endfor %}
                                               </tbody>
@@ -161,28 +161,7 @@
     </section>
 
 
-    <div class="copyriht-area">
-        <div class="container">
-            <div class="row">
-                <div class="col-sm-6 text-left">
-                    <div class="footer-social-link">
-                        <a href="#" class="fa fa-facebook"></a>
-                        <a href="#" class="fa fa-twitter"></a>
-                        <a href="#" class="fa fa-linkedin"></a>
-                        <a href="#" class="fa fa-google-plus"></a>
-                        <a href="#" class="fa fa-tumblr"></a>
-                        <a href="#" class="fa fa-skype"></a>
-                        <a href="#" class="fa fa-vimeo"></a>
-                    </div>
-                </div>
-                <div class="col-sm-6 text-right">
-                    <div class="copyright-text">
-                        <p>Jigsawlab © All Rights Reserved </p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+    {% include 'partials/_footer.html' %}
 
 
 {% endblock %}

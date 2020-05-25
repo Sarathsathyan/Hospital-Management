@@ -66,3 +66,22 @@ class CreatePatient(models.Model):
         return self.name
 
 
+class patientInvoice(models.Model):
+    user_id = models.ForeignKey(User,on_delete=models.CASCADE)
+    paid = models.IntegerField()
+    date = models.DateTimeField(default=datetime.now,null=True)
+    outstand = models.IntegerField()
+
+
+class contact(models.Model):
+    name = models.CharField(max_length=100)
+    email = models.CharField(max_length=100)
+    phone = PhoneNumberField(null=False, blank=False, unique=False, default='+91')
+    date = models.DateField()
+    comment = models.CharField(max_length=500)
+
+    def __str__(self):
+        return self.name
+
+
+
