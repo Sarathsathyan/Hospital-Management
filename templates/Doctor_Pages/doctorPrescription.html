@@ -105,7 +105,7 @@
                                             <div class="v2-about-select" style="color: black;background: #1b6d85">
                                                 <select name="patient" required>
                                                     {% for i in lists %}
-                                                        {% if i.is_active and not i.is_staff %}
+                                                        {% if i.is_active and not i.is_staff and not i.is_superuser %}
 
                                                     <option value="{{ i.first_name }} {{ i.last_name }}">{{ i.first_name }} {{ i.last_name }}</option>
 
