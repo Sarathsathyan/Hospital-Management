@@ -39,12 +39,12 @@
                         {% endif %}
                     {% endif %}
                     {% if user %}
-                    {% if user.is_staff and not user.is_superuser%}
+                    {% if user.is_staff and not user.is_superuser %}
                         <li><a href="{% url 'doctorAppointments' %}">Your Appointments </a>
 
                         </li>
-                    {% elif user.is_active and not user.is_staff %}
-                        <li><a href="#team">Your Appointments</a>
+                    {% elif user.is_active and not user.is_staff and not user.is_superuser%}
+                        <li><a href="{% url 'patientAppoint' %}">Your Appointments</a>
 
                         </li>
                     {% endif %}
@@ -55,7 +55,7 @@
 
 
                         </li>
-                    {% elif user.is_active and not user.is_staff %}
+                    {% elif user.is_active and not user.is_staff and not user.is_superuser%}
 
                         <li><a href="#">Invoice & payments <span class="fa fa-angle-down"></span></a>
 
@@ -90,10 +90,11 @@
                         <li><a href="#contact">Login / Register</a></li>
                         {% endif %}
 
-                    {% if user.is_superuser %}
+                    {% if user.is_staff %}
                         <li><a href="{% url 'receptionDash' %}" >receptionalist </a></li>
 
                     {% endif %}
+
                     </ul>
 
                 </div>

@@ -1,5 +1,5 @@
 {% extends 'base.html' %}
-{% load static %}
+{% load static %}{% load crispy_forms_tags %}
 {% block content %}
 
     <style>
@@ -19,6 +19,9 @@
 
     }
     .head{
+        color: black;
+    }
+    #id_user_phone{
         color: black;
     }
 
@@ -98,64 +101,72 @@
                                     <div class="about-form" style="background: transparent">
 
                                         <div class="form-title text-center">
-                                            <h2 > <span class="head">Appointment Create Page</span></h2>
+                                            <h2 > <span class="head">Create Patient</span></h2>
                                         </div>
 
                                      <div class="addin" style="margin-top: 38px">
                                          <form method="post">{% csrf_token %}
 
                                               <div class="v2-about-input new">
-                                           Date: <input class="new" type="date" style="color: black;background: #1b6d85" name="date1" required>
+                                           Name: <input class="new" type="text" style="color: black" name="name" required>
                                         </div>
                                         <div class="v2-about-input new">
-                                           Time: <input type="time" style="color: black;background: #1b6d85"  name="time" required>
+                                           Phone:  {{ form|crispy }}
                                         </div>
                                          <div class="v2-about-input new">
-                                             {% if lists %}
-                                          Doctor:
+                                             Email: <input type="email" style="color: black"  name="email" required>
+                                        </div>
+                                         <div class="v2-about-input new">
+
+                                          Gender:
                                              <div class="v2-about-select" style="color: black;background: #1b6d85">
 
-                                                 <select name="doctors" required>
-                                                     {% for i in lists %}
-                                                         {% if i.is_staff and not i.is_superuser %}
-
-                                                    <option value="{{ i.first_name }} {{ i.last_name }}">{{ i.first_name }} {{ i.last_name }}</option>
-
-                                                         {% endif %}
-                                                     {% endfor %}
+                                                 <select name="gender" required>
+                                                    <option value="Male">Male</option>
+                                                     <option value="Female">Female</option>
+                                                     <option value="Others">Others</option>
                                                 </select>
                                              </div>
-                                             {% endif %}
-                                        </div>
-                                        <div class="v2-about-input new">
-                                            {% if lists %}
-                                           Patient:
-                                            <div class="v2-about-select" style="color: black;background: #1b6d85">
 
-                                                 <select name="patients" required>
-                                                     {% for i in lists %}
-                                                {% if i.is_active and not i.is_staff %}
-                                                    <option value="{{ i.first_name }} {{ i.last_name }}">{{ i.first_name }} {{ i.last_name }}</option>
-                                                     {% endif %}
-                                                     {% endfor %}
-                                                </select>
-                                             </div>
-                                            {% endif %}
                                         </div>
                                              <div class="v2-about-input new">
-                                           Status:
+                                             Age: <input type="text" style="color: black"  name="age" required>
+                                        </div>
+                                         <div class="v2-about-input new">
+                                             Address: <input type="text" style="color: black;background: #1b6d85"  name="address" required>
+                                        </div>
+                                         <div class="v2-about-input new">
+                                             Outstanding: <input type="text" style="color: black;background: #1b6d85"  name="outstanding" required>
+                                        </div>
+                                         <div class="v2-about-input new">
+                                             Paid: <input type="text" style="color: black;background: #1b6d85"  name="paid" required>
+                                        </div>
+
+                                        <div class="v2-about-input new">
+
+                                           Blood Group:
                                             <div class="v2-about-select" style="color: black;background: #1b6d85">
 
-                                                 <select name="status" required>
-                                                    <option value="Pending">Pending</option>
-                                                    <option value="Completed">Completed</option>
+                                                 <select name="group" required>
+
+                                                    <option value="A">A</option>
+                                                     <option value="A Positive">A Positive</option>
+                                                     <option value="B">B </option>
+                                                     <option value="B Positive">B Positive</option>
+
                                                 </select>
                                              </div>
                                         </div>
+                                             <div class="v2-about-input new">
+                                             Case Paper: <input type="text" style="color: black;background: #1b6d85"  name="case" required>
+
+                                             </div>
+
+
 
 
                                         <div class="v2-about-input new v2-about-submit ">
-                                            <input type="submit" name="create" value="Submit Info" style="margin-top: 16px;height: 41px;">
+                                            <input type="submit" name="create" value="Submit Info" >
                                         </div>
 
 

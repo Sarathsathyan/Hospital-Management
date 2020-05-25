@@ -8,7 +8,7 @@ from django.contrib.auth.models import User
 from django.contrib.auth import login,logout,authenticate
 from django.contrib import auth
 from .forms import (AddUserForm)
-from .models import UserDetails,UserMore,Prescription,Appointments
+from .models import UserDetails,UserMore,Prescription,Appointments,CreatePatient
 # Create your views here.
 
 
@@ -102,9 +102,11 @@ def UserLogin(request):
             if request.user.is_staff and request.user.is_superuser:
                 if user.username == "reception":
                     messages.success(request, "Welcome Receptionalist")
-                    return redirect('login')
+                    return redirect('receptionDash')
 
-                print('Welcome admin')
+            if request.user.is_superuser and not request.user.is_staff:
+                messages.success(request,"Welcome HR")
+                return redirect('hrDash')
             else:
 
                 if request.user.is_staff and not request.user.is_superuser:
@@ -219,9 +221,21 @@ def PatientMedical(request):
     }
     return render(request,'Patient_Pages/patientMedical.html',context)
 
+def PatientAppoint(request):
+    user = request.user
+
+    name = user.first_name+" "+user.last_name
+    appoints = Appointments.objects.filter(patient=name)
+    context ={
+        'appoints':appoints,
+    }
+    return render(request,"Patient_Pages/appointments.html",context)
+
 
 def ReceptionDash(request):
     user = request.user
+
+    patients = CreatePatient.objects.filter("create_date")
 
 
     appointments = Appointments.objects.order_by("date")
@@ -237,7 +251,8 @@ def ReceptionDash(request):
         'appoint':appointments,
         'total' : total,
         't_done' :t_done,
-        'u_done':u_done
+        'u_done':u_done,
+        'patients':patients,
     }
 
     return render(request,'Hospital_Pages/receptionDashboard.html',context)
@@ -265,3 +280,46 @@ def ReceptionAppointment(request):
     }
 
     return render(request,'Hospital_Pages/receptionAppointment.html',context)
+
+def ReceptionPatient(request):
+
+    form = AddUserForm
+
+    if request.method == "POST":
+        if 'create' in request.POST:
+            name = request.POST['name']
+            phone = request.POST['user_phone']
+            email = request.POST['email']
+            gender = request.POST['gender']
+            address = request.POST['address']
+            outstand = request.POST['outstanding']
+            paid = request.POST['paid']
+            blood = request.POST['group']
+            case = request.POST['case']
+            age = request.POST['age']
+
+            data = CreatePatient(name=name,phone=phone,email=email,gender=gender,address=address,out=outstand,
+                                 paid=paid,group=blood,case=case,age=age)
+            data.save()
+            messages.success(request,"Patient Created Successfully")
+            return redirect("receptionDash")
+
+    context ={
+        'form':form,
+    }
+
+    return render(request,"Hospital_Pages/createPatient.html",context)
+
+
+def hrDash(request):
+    user = request.user
+    doctors = UserMore.objects.all()
+    patients = CreatePatient.objects.order_by('create_date')
+    patient = patients.count()
+    print(patient)
+    context ={
+        'patient':patient,
+        'more':doctors.count()
+    }
+
+    return render(request,"Hospital_Pages/hrDashboard.html",context)

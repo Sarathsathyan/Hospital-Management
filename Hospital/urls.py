@@ -15,8 +15,12 @@ urlpatterns = [
     path('doctorPrescription/', views.DoctorPrescription, name='doctorPrescription'),
 
     path('patientMedical/', views.PatientMedical, name='patientMedical'),
+    path('patientAppointments/', views.PatientAppoint, name='patientAppoint'),
 
     path('reception/', views.ReceptionDash, name='receptionDash'),
     path('createAppointment/', views.ReceptionAppointment, name='receptionAppointment'),
+    path('createPatient/', views.ReceptionPatient, name='receptionPatient'),
+
+    path('hrDashboard/',views.hrDash,name='hrDash'),
     path('login/',views.UserLogin,name='login'),
     ]

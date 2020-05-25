@@ -54,6 +54,12 @@ class CreatePatient(models.Model):
     email = models.CharField(max_length=100)
     gender = models.CharField(max_length=50)
     age = models.IntegerField()
+    address = models.CharField(max_length=100,null=True)
+    out = models.CharField(max_length=100,null=True)
+    paid = models.CharField(max_length=50,null=True)
+    case = models.CharField(max_length=100,null=True)
+    group = models.CharField(max_length=50,null=True)
+
     create_date = models.DateTimeField(default=datetime.now,null=True)
 
     def __str__(self):

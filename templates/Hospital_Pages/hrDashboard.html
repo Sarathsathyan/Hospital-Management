@@ -31,26 +31,7 @@
     color: steelblue;
     }
     {# table#}
-    .pos{
-        font-size: 15px;
-        position: absolute;
-        width: 40%;
-    }
 
-    .pat{
-
-    left: 48%;
-    position: relative;
-}
-    .headfst{    margin-top: -32px;
-    position: absolute}
-    .headpos {
-        position: absolute;
-        left: 77%;
-        right: 6%;
-        margin-top: -35px;
-        text-align: end;
-    }
 
 
     </style>
@@ -125,16 +106,16 @@
                                         </div>
 
                                             <div class="v2-about-input" style="width: 32%;height: 25%">
-                                            <p class="para"> Total Appointments :</p><input type="text" style="color: #2b542c;font-size: 50px" class="in_text" value="{{ total }}" readonly>
+                                            <p class="para"> Total Doctors :</p><input type="text" style="color: #2b542c;font-size: 50px" class="in_text" value="{{ more }}" readonly>
 
                                             </div>
 
                                         <div class="v2-about-input"style="width: 32%;height: 25%">
-                                            <p class="para"> Appointments Done :</p><input type="text" style="color: #2b542c;font-size: 50px"  class="in_text" value="{{ t_done }}" readonly>
+                                            <p class="para"> Total Patients :</p><input type="text" style="color: #2b542c;font-size: 50px"  class="in_text" value="{{ patient }}" readonly>
 
                                             </div>
                                         <div class="v2-about-input"style="width: 32%;height: 25%">
-                                            <p class="para"> Upcoming Appointments :</p><input type="text" style="color: #2b542c;font-size: 50px"  class="in_text" value="{{ u_done }}" readonly>
+                                            <p class="para"> Onduity Doctors :</p><input type="text" style="color: #2b542c;font-size: 50px"  class="in_text" value="{{ u_done }}" readonly>
 
                                             </div>
 
@@ -154,41 +135,15 @@
                             <div class="row">
                                     <div class="col-sm-6 v3-homeform" style="width: 100%">
 
+                                    <h2 style="margin-top: 45px">Doctors</h2>
+
 
                                     <div class="about-form" style="background: transparent">
 
-                                        <div class="form-title" style="margin-top: 41px;">
-                                            <h3 class="headfst"><a href="{% url 'receptionAppointment' %}"> <span class="head">Create Appointments</span></a></h3>
-                                            <h3 class="headpos"><a href="{% url 'receptionPatient' %}"> <span class="head">Create Patients</span></a></h3>
-                                        </div>
-
-
-                                        <table class="table pos" style="width: 40%">
-                                              <thead class="thead-light" style="color: #1b6d85;font-size: 15px">
-                                                <tr>
-                                                  <th scope="col">Date</th>
-                                                  <th scope="col">Time</th>
-                                                  <th scope="col">Doctor</th>
-                                                  <th scope="col">Patient</th>
-                                                    <th scope="col">Status</th>
-                                                </tr>
-                                              </thead>
-                                              <tbody>
-                                              {% for m in appoint %}
-                                                <tr style="font-size: 14px">
-                                                  <th scope="row">{{ m.date }}</th>
-                                                  <td>{{ m.time }}</td>
-                                                  <td>{{ m.doctor }}</td>
-                                                  <td>{{ m.patient }}</td>
-                                                <td>{{ m.status }}</td>
-                                                </tr>
-                                              {% endfor %}
-                                              </tbody>
-                                            </table>
 
 {#            patients                        #}
 
-                                    <table class="table pat" style="width: 55%">
+                                    <table class="table">
                                               <thead class="thead-light" style="color: #1b6d85;font-size: 15px">
                                                 <tr>
                                                   <th scope="col">Name</th>
@@ -196,8 +151,14 @@
                                                   <th scope="col">Email</th>
                                                   <th scope="col">Gender</th>
                                                     <th scope="col">Age</th>
+                                                    <th scope="col">Status</th>
+                                                    <th scope="col">Department</th>
+                                                    <th scope="col">Attendance</th>
+                                                    <th scope="col">Salary</th>
                                                     <th scope="col">Update</th>
                                                     <th scope="col">Remove</th>
+
+
                                                 </tr>
                                               </thead>
                                               <tbody>
