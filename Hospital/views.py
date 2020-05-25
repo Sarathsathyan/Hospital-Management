@@ -224,7 +224,6 @@ def ReceptionDash(request):
     user = request.user
 
 
-
     appointments = Appointments.objects.order_by("date")
 
     total = appointments.count()

@@ -48,4 +48,15 @@ class Appointments(models.Model):
     def __str__(self):
         return self.date
 
+class CreatePatient(models.Model):
+    name = models.CharField(max_length=100)
+    phone = PhoneNumberField(null=False, blank=False, unique=False, default='+91')
+    email = models.CharField(max_length=100)
+    gender = models.CharField(max_length=50)
+    age = models.IntegerField()
+    create_date = models.DateTimeField(default=datetime.now,null=True)
+
+    def __str__(self):
+        return self.name
+
 

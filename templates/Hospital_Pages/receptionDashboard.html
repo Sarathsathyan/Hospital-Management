@@ -42,6 +42,13 @@
     left: 48%;
     position: relative;
 }
+    .headpos{
+            position: relative;
+    /* left: 51%; */
+    margin-top: -35px;
+    text-align: end;
+    margin-right: 50px;
+    }
 
 
     </style>
@@ -115,16 +122,16 @@
                                             <h2 > <span class="head">History</span></h2>
                                         </div>
 
-                                            <div class="v2-about-input" style="width: 31%;height: 25%">
+                                            <div class="v2-about-input" style="width: 32%;height: 25%">
                                             <p class="para"> Total Appointments :</p><input type="text" style="color: #2b542c;font-size: 50px" class="in_text" value="{{ total }}" readonly>
 
                                             </div>
 
-                                        <div class="v2-about-input"style="width: 31%;height: 25%">
+                                        <div class="v2-about-input"style="width: 32%;height: 25%">
                                             <p class="para"> Appointments Done :</p><input type="text" style="color: #2b542c;font-size: 50px"  class="in_text" value="{{ t_done }}" readonly>
 
                                             </div>
-                                        <div class="v2-about-input"style="width: 31%;height: 25%">
+                                        <div class="v2-about-input"style="width: 32%;height: 25%">
                                             <p class="para"> Upcoming Appointments :</p><input type="text" style="color: #2b542c;font-size: 50px"  class="in_text" value="{{ u_done }}" readonly>
 
                                             </div>
@@ -148,8 +155,9 @@
 
                                     <div class="about-form" style="background: transparent">
 
-                                        <div class="form-title text-center" style="margin-top: 41px;">
+                                        <div class="form-title" style="margin-top: 41px;">
                                             <h2><a href="{% url 'receptionAppointment' %}"> <span class="head">Create Appointments</span></a></h2>
+                                            <h2 class="headpos"><a href="{% url 'receptionAppointment' %}"> <span class="head">Create Patients</span></a></h2>
                                         </div>
 
 
@@ -177,14 +185,17 @@
                                             </table>
 
 {#            patients                        #}
-                                    <table class="table pat" style="width: 50%">
+
+                                    <table class="table pat" style="width: 55%">
                                               <thead class="thead-light" style="color: #1b6d85;font-size: 15px">
                                                 <tr>
-                                                  <th scope="col">Date</th>
-                                                  <th scope="col">Time</th>
-                                                  <th scope="col">Doctor</th>
-                                                  <th scope="col">Patient</th>
-                                                    <th scope="col">Status</th>
+                                                  <th scope="col">Name</th>
+                                                  <th scope="col">Phone</th>
+                                                  <th scope="col">Email</th>
+                                                  <th scope="col">Gender</th>
+                                                    <th scope="col">Age</th>
+                                                    <th scope="col">Update</th>
+                                                    <th scope="col">Remove</th>
                                                 </tr>
                                               </thead>
                                               <tbody>
