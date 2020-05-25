@@ -188,7 +188,8 @@ def DoctorAppointmnets(request):
         context ={
             'appoints':appints
         }
-    return render(request,'Doctor_Pages/doctorAppointments.html',context)
+        return render(request,'Doctor_Pages/doctorAppointments.html',context)
+    return render(request,'Doctor_Pages/doctorAppointments.html')
 
 def DoctorPrescription(request):
     if request.user.is_active and request.user.is_staff:
@@ -342,6 +343,7 @@ def hrDash(request):
     patient = patients.count()
     print(patient)
     context ={
+        'patients':patients,
         'patient':patient,
         'more':doctors.count()
     }
